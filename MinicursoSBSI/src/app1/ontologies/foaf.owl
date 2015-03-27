@@ -1,0 +1,561 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY foaf "http://www.semanticweb.org/ontologies/2013/10/foaf.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2013/10/foaf.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2013/10/foaf.owl"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:foaf="http://www.semanticweb.org/ontologies/2013/10/foaf.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/2013/10/foaf.owl">
+        <rdfs:comment>Observações sobre as seguintes propriedades: based_near, aimChatID, yahooChatID, icqChatID, jabberID, msnChatID, focus, nick, phone, title</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#account -->
+
+    <owl:ObjectProperty rdf:about="&foaf;account">
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+        <rdfs:range rdf:resource="&foaf;OnLineAccount"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#accountServiceHomepage -->
+
+    <owl:ObjectProperty rdf:about="&foaf;accountServiceHomepage">
+        <rdfs:range rdf:resource="&foaf;Document"/>
+        <rdfs:domain rdf:resource="&foaf;OnLineAccount"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#aimChatID -->
+
+    <owl:ObjectProperty rdf:about="&foaf;aimChatID">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#based_near -->
+
+    <owl:ObjectProperty rdf:about="&foaf;based_near"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#currentProject -->
+
+    <owl:ObjectProperty rdf:about="&foaf;currentProject">
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#depiction -->
+
+    <owl:ObjectProperty rdf:about="&foaf;depiction">
+        <rdfs:range rdf:resource="&foaf;Image"/>
+        <owl:inverseOf rdf:resource="&foaf;depicts"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#depicts -->
+
+    <owl:ObjectProperty rdf:about="&foaf;depicts"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#homepage -->
+
+    <owl:ObjectProperty rdf:about="&foaf;homepage">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&foaf;isPrimaryTopicOf"/>
+        <rdfs:subPropertyOf rdf:resource="&foaf;page"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#icqChatID -->
+
+    <owl:ObjectProperty rdf:about="&foaf;icqChatID">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#img -->
+
+    <owl:ObjectProperty rdf:about="&foaf;img">
+        <rdfs:range rdf:resource="&foaf;Image"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+        <rdfs:subPropertyOf rdf:resource="&foaf;depiction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#interest -->
+
+    <owl:ObjectProperty rdf:about="&foaf;interest">
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+        <rdfs:range rdf:resource="&foaf;Document"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#isPrimaryTopicOf -->
+
+    <owl:ObjectProperty rdf:about="&foaf;isPrimaryTopicOf">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&foaf;page"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#jabberID -->
+
+    <owl:ObjectProperty rdf:about="&foaf;jabberID">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#knows -->
+
+    <owl:ObjectProperty rdf:about="&foaf;knows">
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#logo -->
+
+    <owl:ObjectProperty rdf:about="&foaf;logo">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#made -->
+
+    <owl:ObjectProperty rdf:about="&foaf;made">
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+        <owl:inverseOf rdf:resource="&foaf;maker"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#maker -->
+
+    <owl:ObjectProperty rdf:about="&foaf;maker"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#mbox -->
+
+    <owl:ObjectProperty rdf:about="&foaf;mbox">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#mbox_sha1sum -->
+
+    <owl:ObjectProperty rdf:about="&foaf;mbox_sha1sum">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#member -->
+
+    <owl:ObjectProperty rdf:about="&foaf;member">
+        <rdfs:range rdf:resource="&foaf;Agent"/>
+        <rdfs:domain rdf:resource="&foaf;Group"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#msnChatID -->
+
+    <owl:ObjectProperty rdf:about="&foaf;msnChatID">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#myersBriggs -->
+
+    <owl:ObjectProperty rdf:about="&foaf;myersBriggs">
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#openid -->
+
+    <owl:ObjectProperty rdf:about="&foaf;openid">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+        <rdfs:range rdf:resource="&foaf;Document"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#page -->
+
+    <owl:ObjectProperty rdf:about="&foaf;page">
+        <rdfs:range rdf:resource="&foaf;Document"/>
+        <owl:inverseOf rdf:resource="&foaf;topic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#pastProject -->
+
+    <owl:ObjectProperty rdf:about="&foaf;pastProject">
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#plan -->
+
+    <owl:ObjectProperty rdf:about="&foaf;plan">
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#primaryTopic -->
+
+    <owl:ObjectProperty rdf:about="&foaf;primaryTopic">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <owl:inverseOf rdf:resource="&foaf;isPrimaryTopicOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#publications -->
+
+    <owl:ObjectProperty rdf:about="&foaf;publications">
+        <rdfs:range rdf:resource="&foaf;Document"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#schoolHomepage -->
+
+    <owl:ObjectProperty rdf:about="&foaf;schoolHomepage">
+        <rdfs:range rdf:resource="&foaf;Document"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#skypeID -->
+
+    <owl:ObjectProperty rdf:about="&foaf;skypeID">
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#thumbnail -->
+
+    <owl:ObjectProperty rdf:about="&foaf;thumbnail">
+        <rdfs:domain rdf:resource="&foaf;Image"/>
+        <rdfs:range rdf:resource="&foaf;Image"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#tipjar -->
+
+    <owl:ObjectProperty rdf:about="&foaf;tipjar">
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+        <rdfs:range rdf:resource="&foaf;Document"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#topic -->
+
+    <owl:ObjectProperty rdf:about="&foaf;topic"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#topic_interest -->
+
+    <owl:ObjectProperty rdf:about="&foaf;topic_interest">
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#weblog -->
+
+    <owl:ObjectProperty rdf:about="&foaf;weblog">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+        <rdfs:range rdf:resource="&foaf;Document"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#workInfoHomepage -->
+
+    <owl:ObjectProperty rdf:about="&foaf;workInfoHomepage">
+        <rdfs:range rdf:resource="&foaf;Document"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#workplaceHomepage -->
+
+    <owl:ObjectProperty rdf:about="&foaf;workplaceHomepage">
+        <rdfs:range rdf:resource="&foaf;Document"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#yahooChatID -->
+
+    <owl:ObjectProperty rdf:about="&foaf;yahooChatID">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#accountName -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;accountName">
+        <rdfs:domain rdf:resource="&foaf;OnLineAccount"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#familyName -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;familyName">
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#firstName -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;firstName">
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#gender -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;gender">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#givenName -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;givenName">
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#lastName -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;lastName">
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#name -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;name">
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#nick -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;nick">
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#phone -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;phone">
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#title -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;title">
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#Agent -->
+
+    <owl:Class rdf:about="&foaf;Agent"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#Document -->
+
+    <owl:Class rdf:about="&foaf;Document">
+        <owl:disjointWith rdf:resource="&foaf;Organization"/>
+        <owl:disjointWith rdf:resource="&foaf;Project"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#Group -->
+
+    <owl:Class rdf:about="&foaf;Group">
+        <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#Image -->
+
+    <owl:Class rdf:about="&foaf;Image">
+        <rdfs:subClassOf rdf:resource="&foaf;Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#OnLineAccount -->
+
+    <owl:Class rdf:about="&foaf;OnLineAccount"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#Organization -->
+
+    <owl:Class rdf:about="&foaf;Organization">
+        <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
+        <owl:disjointWith rdf:resource="&foaf;Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#Person -->
+
+    <owl:Class rdf:about="&foaf;Person">
+        <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
+        <owl:disjointWith rdf:resource="&foaf;Project"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#PersonalProfileDocument -->
+
+    <owl:Class rdf:about="&foaf;PersonalProfileDocument">
+        <rdfs:subClassOf rdf:resource="&foaf;Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/10/foaf.owl#Project -->
+
+    <owl:Class rdf:about="&foaf;Project"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

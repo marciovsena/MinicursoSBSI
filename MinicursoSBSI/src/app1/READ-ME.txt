@@ -1,0 +1,46 @@
+.: Descrição do Trabalho:
+
+
+- Problema: 
+Encontrar revisores para artigos científicos pode ser um problema se não se conhecer um pesquisador especialista na área de conhecimento de cada artigo.
+
+- Solução Necessária: 
+Sabendo-se a(s) área(s) de conhecimento de um artigo científico, deve-se localizar especialista(s) dessa mesma área de conhecimento, ou de subáreas da mesma. 
+Esses revisores são candidatos em potencial para revisar os devidos artigos. 
+
+- Ontologias Utilizadas: 
+FOAF e ACM CS
+
+- Descrição das Classes:
+App.java: é a classe principal que executa todo o projeto.
+ModelController.java: é a classe que cria o Model e controla todo o Modelo Jena. Há também vários métodos importantes como o runRDFSReasoner (máquina de inferência RDFS) e o runOWLMicroReasoner (máquina de inferência OWL utilizando Micro Reasoner).
+RecursoController.java: é a classe que criar os Recursos (Resource) conforme os exemplos que criamos.
+QueryController.java: é a classe que controla todas as Queries em SPARQL para fazer as consultas ao Modelo.
+DBController.java: é a classe que controla o armazenamento, consultas e remoção de triplas do banco de dados.
+DBConnection.java: é a classe que controla a conexão com o banco de dados.
+DBParameters.java: é a classe que define os parâmetros para conexão ao banco de dados, no caso Postgresql.
+Acm.java: é a ontologia Acm compilada em Java.
+Foaf.java: é a ontologia Foaf compilada em Java.
+acm.owl: é a ontologia OWL Acm.
+foaf.owl: é a ontologia OWL Foaf.
+
+- Banco de Dados:
+É importante lembrar que para a funcionalidade de armazenamento funcionar, deve ser criado um banco de dados no SGDB Postgresql com o nome de "weslley_jena2" ou alterar este nome em DBParameters.
+
+- Menu de Opções:
+Foi criado um menu de opções em modo texto para exercitar todas as funcionalidades do software.
+
+
+- Grupo de Alunos Desenvolvedores:
+Lizandra Ottmann
+Weslley Martins Araújo
+
+- Disciplina
+Tópicos em Engenharia de Software
+2014/2
+
+- Curso
+Engenharia de Software
+
+- Professor
+Renato Bulcão
