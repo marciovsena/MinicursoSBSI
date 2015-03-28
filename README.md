@@ -16,5 +16,11 @@
   * **[TDB](http://jena.apache.org/documentation/tdb/index.html)**: 0.10.0
   * **[Pellet](https://github.com/Complexible/pellet)**: Última versão
 
+#### Aplicações e requisitos:
+* src/app1
+ * **Título:** Recomendação de Revisores de Artigos Científicos 
+ * **Problema:** encontrar revisores para artigos científicos pode ser um problema se não se conhecer um
+pesquisador especialista na área de conhecimento de cada artigo
+ * **Solução: **
 
 
