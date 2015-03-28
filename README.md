@@ -16,5 +16,15 @@
   * **[TDB](http://jena.apache.org/documentation/tdb/index.html)**: 0.10.0
   * **[Pellet](https://github.com/Complexible/pellet)**: Última versão
 
-
-
+#### Aplicações e requisitos:
+* src/app1
+ * **Título:** Recomendação de Revisores de Artigos Científicos 
+ * **Problema:** encontrar revisores para artigos científicos pode ser um problema se não se conhecer um
+pesquisador especialista na área de conhecimento de cada artigo
+ * **Solução:** sabendo-se a(s) área(s) de conhecimento de um artigo científico, deve-se localizar especialista(s) dessa mesma área de conhecimento, ou de subáreas da mesma. Esses revisores são candidatos em potencial para revisar os devidos artigos.
+ * **Ontologias:** FOAF e ACM CS
+* src/app2
+ * **Título:** Socialização de pessoas com interesses comuns 
+ * **Problema:** uma pessoa deseja se socializar com outras pessoas que possuam interessem em comum, por exemplo, que têm interesse nas mesmas áreas de conhecimento
+ * **Solução:** sabendo-se a(s) área(s) de conhecimento na(s) qual(is) a pessoa tem interesse, deve-se localizar outras pessoas que possuam as mesmas áreas de interesse, ou interesse em subáreas dessas. Essas pessoas podem ser socializadas, por exemplo, por meio da criação de grupos, cujo tema/título representa a área de conhecimento em questão.
+ * **Ontologias:** FOAF, Relationship e ACM CS
