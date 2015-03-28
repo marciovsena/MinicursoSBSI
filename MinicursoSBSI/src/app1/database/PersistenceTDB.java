@@ -20,18 +20,20 @@ public class PersistenceTDB {
 	Dataset dataset = null;
 
 	public PersistenceTDB() {
-		String diretorio = "HermesDatabases/DatasetHW";
+		String diretorio = "MinicursoSBSI_DatabaseTDB/Dataset";
 		dataset = TDBFactory.createDataset(diretorio);
 		// String assemblerFile = "Store/tdb-assembler.ttl";
 		// dataset = TDBFactory.assembleDataset(assemblerFile);
 	}
 
-//	public void createConection() {
-//		String diretorio = "HermesDatabases/DatasetHW";
-//		dataset = TDBFactory.createDataset(diretorio);
-//		// String assemblerFile = "Store/tdb-assembler.ttl";
-//		// dataset = TDBFactory.assembleDataset(assemblerFile);
-//	}
+	/*
+	public void createConection() {
+		String diretorio = "HermesDatabases/DatasetHW";
+		dataset = TDBFactory.createDataset(diretorio);
+		// String assemblerFile = "Store/tdb-assembler.ttl";
+		// dataset = TDBFactory.assembleDataset(assemblerFile);
+	}
+	*/
 
 	public void update(Model model) {
 		try {
@@ -39,7 +41,7 @@ public class PersistenceTDB {
 			Model modelTDB = dataset.getDefaultModel();
 			modelTDB.add(model);
 			dataset.commit();
-			//System.out.println("\nModelo armazenado com sucesso!\n");
+			System.out.println("Modelo armazenado com sucesso!\n");
 		} finally {
 			dataset.end();
 		}
@@ -66,6 +68,8 @@ public class PersistenceTDB {
 			dataset.begin(ReadWrite.WRITE);
 			Model modelTDB = dataset.getDefaultModel();
 			modelTDB.remove(model);
+			dataset.commit();
+			System.out.println("Modelo deletado com sucesso!\n");
 		} finally {
 			dataset.end();
 		}

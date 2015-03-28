@@ -23,7 +23,7 @@ public class ModelController {
 		model = ModelFactory.createDefaultModel();
 		
 		// Inicializa os Recursos para o Modelo
-		RecursoController r = new RecursoController(model);
+		ResourceController r = new ResourceController(model);
 		model = r.getModel();
 	}
 	
@@ -96,7 +96,6 @@ public class ModelController {
 		try {
 			QueryController.getPerson(runPelletReasoner(model));
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -114,7 +113,12 @@ public class ModelController {
 		
 		//Com inferência OWLMicroReasoner
 		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
-		QueryController.getDocument(runOWLMicroReasoner(model));
+		//QueryController.getDocument(runOWLMicroReasoner(model));
+		try {
+			QueryController.getDocument(runPelletReasoner(model));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void listarAutores() {
@@ -129,7 +133,12 @@ public class ModelController {
 		
 		//Com inferência OWLMicroReasoner
 		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
-		QueryController.getAutor(runOWLMicroReasoner(model));
+		//QueryController.getAutor(runOWLMicroReasoner(model));
+		try {
+			QueryController.getAutor(runPelletReasoner(model));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void listarRevisores() {
@@ -144,7 +153,12 @@ public class ModelController {
 		
 		//Com inferência OWLMicroReasoner
 		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
-		QueryController.getRevisorArea(runOWLMicroReasoner(model));
+		//QueryController.getRevisorArea(runOWLMicroReasoner(model));
+		try {
+			QueryController.getRevisorArea(runPelletReasoner(model));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void listarArtigosPorArea() {
@@ -159,7 +173,12 @@ public class ModelController {
 		
 		//Com inferência OWLMicroReasoner
 		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
-		QueryController.getArtigoByArea(runOWLMicroReasoner(model));
+		//QueryController.getArtigoByArea(runOWLMicroReasoner(model));
+		try {
+			QueryController.getArtigoByArea(runPelletReasoner(model));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void listarArtigosPorSubarea() {
@@ -174,7 +193,12 @@ public class ModelController {
 		
 		//Com inferência OWLMicroReasoner
 		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
-		QueryController.getSubArea(runOWLMicroReasoner(model));
+		//QueryController.getSubArea(runOWLMicroReasoner(model));
+		try {
+			QueryController.getSubArea(runPelletReasoner(model));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void sugerirRevisoresParaTodosArtigos() {
@@ -191,8 +215,14 @@ public class ModelController {
 		
 		//Com inferência OWLMicroReasoner
 		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
-		QueryController.sugerirRevisorArea(runOWLMicroReasoner(model));
-		QueryController.sugerirRevisorSubArea(runOWLMicroReasoner(model));
+		//QueryController.sugerirRevisorArea(runOWLMicroReasoner(model));
+		//QueryController.sugerirRevisorSubArea(runOWLMicroReasoner(model));
+		try {
+			QueryController.sugerirRevisorArea(runPelletReasoner(model));
+			QueryController.sugerirRevisorSubArea(runPelletReasoner(model));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void sugerirRevisoresParaArtigoEspecifico() {
@@ -209,8 +239,14 @@ public class ModelController {
 		
 		//Com inferência OWLMicroReasoner
 		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
-		QueryController.sugerirRevisorArtigo1byArea(runOWLMicroReasoner(model));
-		QueryController.sugerirRevisorArtigo1bySubArea(runOWLMicroReasoner(model));
+		//QueryController.sugerirRevisorArtigo1byArea(runOWLMicroReasoner(model));
+		//QueryController.sugerirRevisorArtigo1bySubArea(runOWLMicroReasoner(model));
+		try {
+			QueryController.sugerirRevisorArtigo1byArea(runPelletReasoner(model));
+			QueryController.sugerirRevisorArtigo1bySubArea(runPelletReasoner(model));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void persistirDadosRepositorioTDB() {
