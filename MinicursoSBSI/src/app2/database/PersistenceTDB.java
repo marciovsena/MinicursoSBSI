@@ -1,4 +1,4 @@
-package app1.database;
+package app2.database;
 
 import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.QueryExecution;
