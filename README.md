@@ -2,7 +2,7 @@
 
 #### Informações gerais do minicurso:
 * **Evento:** XI Simpósio Brasileiro de Sistemas de Informação
-* **Ministrantes:** Ernesto Veiga, Márcio Vinícius Oliveira Sena ([@marciovsena](https://github.com/marciovsena)) e Renato Bulcão Neto
+* **Ministrantes:** Ernesto Veiga([@ErnestoVeiga](https://github.com/ErnestoVeiga)), Márcio Vinícius Oliveira Sena ([@marciovsena](https://github.com/marciovsena)) e Renato Bulcão Neto
 * **Tema:** Padrões, ferramentas e boas práticas no desenvolvimento de software para Web
 * **Data:** 26 a 29 de maio
 * **Carga horária:** 8 horas
@@ -15,6 +15,10 @@
   * **[Apache Jena](http://jena.apache.org/)**: 2.10.0
   * **[TDB](http://jena.apache.org/documentation/tdb/index.html)**: 0.10.0
   * **[Pellet](https://github.com/Complexible/pellet)**: Última versão
+* Ontologias - *estão incluídas no projeto*
+ *  **[FOAF](http://xmlns.com/foaf/spec/):** - Friend of a Friend
+ *  **ACM CS** 
+ *  **[Relationship](http://vocab.org/relationship/.html)**
 
 #### Aplicações e requisitos:
 * src/app1
