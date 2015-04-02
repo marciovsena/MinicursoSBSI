@@ -17,6 +17,8 @@ import com.hp.hpl.jena.util.FileManager;
 public class ModelController {
 	
 	static Model model;
+	static String FOAF = "src/ontologies/foaf.owl";
+	static String ACM = "src/ontologies/acm.owl";
 
 
 	public static void inicializaModelo() {
@@ -40,8 +42,8 @@ public class ModelController {
 	public static InfModel runRDFSReasoner(Model model) {
 		// Máquina Inferência utilizando o RDFSReasoner
 		
-		Model schema = FileManager.get().loadModel("src/app1/ontologies/foaf.owl");
-		Model schema2 = FileManager.get().loadModel("src/app1/ontologies/acm.owl");
+		Model schema = FileManager.get().loadModel(FOAF);
+		Model schema2 = FileManager.get().loadModel(ACM);
 		schema.add(schema2);
 		
 		InfModel infModel = ModelFactory.createRDFSModel(schema, model);
@@ -52,8 +54,8 @@ public class ModelController {
 	public static InfModel runOWLMicroReasoner(Model model) {		
 		// Máquina Inferência utilizando o OWLMicroReasoner
 		
-		Model schema = FileManager.get().loadModel("src/app1/ontologies/foaf.owl");
-		Model schema2 = FileManager.get().loadModel("src/app1/ontologies/acm.owl");
+		Model schema = FileManager.get().loadModel(FOAF);
+		Model schema2 = FileManager.get().loadModel(ACM);
 		schema.add(schema2);
 
 		Reasoner reasoner = ReasonerRegistry.getOWLMicroReasoner();
@@ -67,8 +69,8 @@ public class ModelController {
 	
 	public static InfModel runPelletReasoner(Model model) throws MalformedURLException{
     	
-		Model schema = FileManager.get().loadModel("src/app1/ontologies/foaf.owl");
-		Model schema2 = FileManager.get().loadModel("src/app1/ontologies/acm.owl");
+		Model schema = FileManager.get().loadModel(FOAF);
+		Model schema2 = FileManager.get().loadModel(ACM);
 		schema.add(schema2);
 
 		// create Pellet reasoner

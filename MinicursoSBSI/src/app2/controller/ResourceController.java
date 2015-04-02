@@ -1,8 +1,8 @@
 package app2.controller;
 
 
-import app2.ontologies.ACM;
-import app2.ontologies.FOAF;
+import ontologies.ACM;
+import ontologies.FOAF;
 
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Model;
