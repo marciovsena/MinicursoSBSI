@@ -4,7 +4,7 @@
 * **Evento:** XI Simpósio Brasileiro de Sistemas de Informação
 * **Ministrantes:** Ernesto Veiga([@ErnestoVeiga](https://github.com/ErnestoVeiga)), Márcio Vinícius Oliveira Sena ([@marciovsena](https://github.com/marciovsena)) e Renato Bulcão Neto
 * **Tema:** Padrões, ferramentas e boas práticas no desenvolvimento de software para Web
-* **Data:** 26 a 29 de maio
+* **Data:** 28 de maio
 * **Carga horária:** 8 horas
 
 #### Resumo do minicurso:
