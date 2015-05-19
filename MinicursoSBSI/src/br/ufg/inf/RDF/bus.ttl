@@ -1,0 +1,8 @@
+@prefix bus: <http://bus#> .
+
+bus:Bus1 a bus:Bus ;
+   bus:id "263" . 
+
+bus:BusStop1 a bus:BusStop ;
+  bus:name "31502" .
+   

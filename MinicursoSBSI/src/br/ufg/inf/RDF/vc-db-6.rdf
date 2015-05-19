@@ -1,0 +1,42 @@
+<rdf:RDF
+  xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+  xmlns:vCard='http://www.w3.org/2001/vcard-rdf/3.0#'
+  xmlns:info='http://somewhere/peopleInfo#'
+   >
+
+  <rdf:Description rdf:about="http://somewhere/AliceTorres/">
+    <vCard:FN>Alice Torres</vCard:FN>
+    <info:age rdf:datatype='http://www.w3.org/2001/XMLSchema#integer'>24</info:age>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://somewhere/KarolGuimaraes/">
+    <vCard:FN>Karol Guimaraes</vCard:FN>
+    <info:age rdf:datatype='http://www.w3.org/2001/XMLSchema#integer'>23</info:age>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://somewhere/GiseleCastro/">
+    <vCard:FN>Gisele Castro</vCard:FN>
+    <info:age rdf:datatype='http://www.w3.org/2001/XMLSchema#integer'>18</info:age>
+  </rdf:Description>
+
+<rdf:Description rdf:about="http://somewhere/TulaMiranda/">
+    <vCard:FN>Tula Miranda</vCard:FN>
+    <info:age rdf:datatype='http://www.w3.org/2001/XMLSchema#integer'>23</info:age>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://somewhere/JohnSmith/">
+    <vCard:FN>John Smith</vCard:FN>
+    <info:age rdf:datatype='http://www.w3.org/2001/XMLSchema#integer'>25</info:age>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="http://somewhere/JohnSmith2/">
+    <vCard:FN>John Smith</vCard:FN>
+    <info:age rdf:datatype='http://www.w3.org/2001/XMLSchema#integer'>50</info:age>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://somewhere/RebeccaSmith/">
+    <vCard:FN>Becky Smith</vCard:FN>
+    <info:age rdf:datatype='http://www.w3.org/2001/XMLSchema#integer'>23</info:age>
+  </rdf:Description>
+
+</rdf:RDF>
