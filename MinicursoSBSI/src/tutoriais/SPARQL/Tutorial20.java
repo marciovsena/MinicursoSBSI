@@ -34,11 +34,11 @@ public class Tutorial20 {
 
 	public static void main(String args[]) {
 
-		// Retorna a m�dia das idades dos recursos
+		// Retorna a menor e a maior das idades dos recursos
 		String query = "PREFIX info:    <http://somewhere/peopleInfo#> "
 				+ "PREFIX vcard:   <http://www.w3.org/2001/vcard-rdf/3.0#> "
-				+ "SELECT (AVG(?age) AS ?total) " + "WHERE "
-				+ "{ ?person info:age  ?age . }";
+				+ "SELECT (MIN(?age) AS ?maisNova) (MAX(?age) AS ?maisVelha)"
+				+ "WHERE " + "{ ?person info:age  ?age . }";
 
 		/*
 		 * querySPARQL - A string de consulta na linguagem SPARQL usarResultSet
@@ -49,7 +49,7 @@ public class Tutorial20 {
 
 		// Fonte de dados: 2 = vc-db-2.rdf
 		// Testar com arquivo de dados 2, 5 ou 6 ...
-		queryModel(query, true, 2);
+		queryModel(query, true, 6);
 	}
 
 	public static void queryModel(String querySPARQL, boolean usarResultSet,

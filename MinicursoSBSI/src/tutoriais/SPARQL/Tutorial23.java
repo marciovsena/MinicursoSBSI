@@ -34,9 +34,11 @@ public class Tutorial23 {
 
 	public static void main(String args[]) {
 
-		// Retorna V se existe um recurso cujo sobrenome � 'Smith'
-		String query = "PREFIX vcard:      <http://www.w3.org/2001/vcard-rdf/3.0#>"
-				+ "ASK " + "{ ?s  vcard:Family  'Smith' . " + "}";
+		// Retorna um grafo RDF copiando TODAS as triplas da fonte de dados RDF
+		String query = "PREFIX info:    <http://somewhere/peopleInfo#> "
+				+ "PREFIX vcard:      <http://www.w3.org/2001/vcard-rdf/3.0#>"
+				+ "CONSTRUCT " + "{ ?suj  ?pred  ?obj }" + "WHERE "
+				+ "{ ?suj ?pred ?obj ." + "}";
 
 		/*
 		 * querySPARQL - A string de consulta na linguagem SPARQL file = N�mero
@@ -51,7 +53,7 @@ public class Tutorial23 {
 		// Fonte de dados: 4 = vc-db-4.rdf
 		// Fonte de dados: 5 = vc-db-5.rdf
 		// Fonte de dados: 6 = vc-db-6.rdf
-		queryModel(query, 2);
+		queryModel(query, 1);
 	}
 
 	public static void queryModel(String querySPARQL, int file) {
@@ -96,11 +98,11 @@ public class Tutorial23 {
 		// arquivo
 		QueryExecution qe = QueryExecutionFactory.create(query, model);
 
-		// M�todo execAsk() retorna um valor booleano indicando se o padr�o de
-		// grafo casou os dados de entrada ou n�o
-		boolean result = qe.execAsk();
+		// M�todo execConstruct() executa consultas CONSTRUCT e retorna um grafo
+		// RDF
+		Model resultModel = qe.execConstruct();
 		qe.close();
 
-		System.out.println(result);
+		resultModel.write(System.out, "TURTLE");
 	}
 }

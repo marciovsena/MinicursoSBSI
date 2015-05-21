@@ -34,14 +34,14 @@ public class Tutorial16 {
 
 	public static void main(String args[]) {
 
-		// Busca por nomes e idades de recursos, ao limite de X registros com
-		// deslocamento inicial de 2 posi��es,
-		// ordenados descrescentemente por idade
+		// Retorna o sobrenome dos recursos e quantos deles possuem o mesmo
+		// sobrenome
 		String query = "PREFIX info:    <http://somewhere/peopleInfo#> "
 				+ "PREFIX vcard:   <http://www.w3.org/2001/vcard-rdf/3.0#> "
-				+ "SELECT ?name ?age " + "WHERE "
-				+ "{ ?person vcard:FN  ?name ." + "  ?person info:age ?age ."
-				+ "} ORDER BY ?age desc(?name)" + "LIMIT 4" + "OFFSET 2";
+				+ "SELECT ?sobrenome (COUNT(?sobrenome) AS ?total) " 
+				+ "WHERE "
+				+ "{ ?person ?prop [vcard:Family  ?sobrenome] ." + "} GROUP BY ?sobrenome";
+
 		/*
 		 * querySPARQL - A string de consulta na linguagem SPARQL usarResultSet
 		 * - Imprimir resultados da consulta na forma tabular (true) ou em
@@ -49,9 +49,9 @@ public class Tutorial16 {
 		 * dados RDF
 		 */
 
-		// Fonte de dados: 6 = vc-db-6.rdf
-		// Testar com arquivo de dados 2 ou 6 ...
-		queryModel(query, true, 6);
+		// Fonte de dados: 2 = vc-db-2.rdf
+		// Testar com arquivo de dados 2 ou 3 ...
+		queryModel(query, true, 2);
 	}
 
 	public static void queryModel(String querySPARQL, boolean usarResultSet,
@@ -61,8 +61,8 @@ public class Tutorial16 {
 
 		if (file == 2) {
 			inputFileName = "br/ufg/inf/rdf/vc-db-2.rdf";
-		} else if (file == 6) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-6.rdf";
+		} else if (file == 3) {
+			inputFileName = "br/ufg/inf/rdf/vc-db-3.rdf";
 		} else {
 			throw new IllegalArgumentException("Arquivo: " + inputFileName
 					+ " n�o encontrado!");

@@ -34,31 +34,39 @@ public class Tutorial28 {
 
 	public static void main(String args[]) {
 
-		// Retorna um grafo RDF copiando apenas os recursos com idade superior a
-		// 23 anos
-		String query = "PREFIX info:    <http://somewhere/peopleInfo#> "
-				+ "PREFIX vcard:      <http://www.w3.org/2001/vcard-rdf/3.0#>"
-				+ "CONSTRUCT " + "{ ?suj   ?pred     ?obj ." + "}" + "WHERE "
-				+ "{ ?suj   info:age  ?age ;" + "          ?pred    ?obj ."
-				+ "  FILTER (?age >= 24) " + "}";
+		// Retorna todas as triplas que apresentam o recurso como sujeito
+		String query = "DESCRIBE <http://somewhere/JohnSmith/>";
 
 		/*
 		 * querySPARQL - A string de consulta na linguagem SPARQL file = N�mero
 		 * relativo ao arquivo contendo dados RDF
 		 */
 
-		// Fonte de dados: 5 = vc-db-5.rdf
+		// Fonte de dados: 1 = vc-db-1.rdf
 
 		// TESTE AS DEMAIS FONTES DE DADOS:
+		// Fonte de dados: 2 = vc-db-2.rdf
+		// Fonte de dados: 3 = vc-db-3.rdf
+		// Fonte de dados: 4 = vc-db-4.rdf
+		// Fonte de dados: 5 = vc-db-5.rdf
 		// Fonte de dados: 6 = vc-db-6.rdf
-		queryModel(query, 5);
+
+		queryModel(query, 1);
 	}
 
 	public static void queryModel(String querySPARQL, int file) {
 
 		String inputFileName = null;
 
-		if (file == 5) {
+		if (file == 1) {
+			inputFileName = "br/ufg/inf/rdf/vc-db-1.rdf";
+		} else if (file == 2) {
+			inputFileName = "br/ufg/inf/rdf/vc-db-2.rdf";
+		} else if (file == 3) {
+			inputFileName = "br/ufg/inf/rdf/vc-db-3.rdf";
+		} else if (file == 4) {
+			inputFileName = "br/ufg/inf/rdf/vc-db-4.rdf";
+		} else if (file == 5) {
 			inputFileName = "br/ufg/inf/rdf/vc-db-5.rdf";
 		} else if (file == 6) {
 			inputFileName = "br/ufg/inf/rdf/vc-db-6.rdf";
@@ -88,9 +96,9 @@ public class Tutorial28 {
 		// arquivo
 		QueryExecution qe = QueryExecutionFactory.create(query, model);
 
-		// M�todo execConstruct() executa consultas CONSTRUCT e retorna um grafo
-		// RDF
-		Model resultModel = qe.execConstruct();
+		// M�todo execDescribe() executa consultas DESCRIBE e retorna um grafo
+		// RDF que descreve o recurso procurado
+		Model resultModel = qe.execDescribe();
 		qe.close();
 
 		resultModel.write(System.out, "TURTLE");

@@ -34,13 +34,14 @@ public class Tutorial14 {
 
 	public static void main(String args[]) {
 
-		// Busca por nomes e idades de recursos, ordenados por idade e de forma
-		// decrescente por nome
+		// Busca por nomes e idades de recursos, ao limite de X registros com
+		// deslocamento inicial de 2 posi��es,
+		// ordenados descrescentemente por idade
 		String query = "PREFIX info:    <http://somewhere/peopleInfo#> "
 				+ "PREFIX vcard:   <http://www.w3.org/2001/vcard-rdf/3.0#> "
 				+ "SELECT ?name ?age " + "WHERE "
 				+ "{ ?person vcard:FN  ?name ." + "  ?person info:age ?age ."
-				+ "} ORDER BY ?age desc(?name)";
+				+ "} ORDER BY ?age desc(?name)" + "LIMIT 4" + "OFFSET 2";
 		/*
 		 * querySPARQL - A string de consulta na linguagem SPARQL usarResultSet
 		 * - Imprimir resultados da consulta na forma tabular (true) ou em
@@ -48,10 +49,8 @@ public class Tutorial14 {
 		 * dados RDF
 		 */
 
-		// Fonte de dados: 2 = vc-db-2.rdf
-
-		// TESTE AS DEMAIS FONTES DE DkADOS:
-		// Fonte de dados: 1,3,4,5 e 6 = vc-db-X.rdf
+		// Fonte de dados: 6 = vc-db-6.rdf
+		// Testar com arquivo de dados 2 ou 6 ...
 		queryModel(query, true, 6);
 	}
 
@@ -60,16 +59,8 @@ public class Tutorial14 {
 
 		String inputFileName = null;
 
-		if (file == 1) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-1.rdf";
-		} else if (file == 2) {
+		if (file == 2) {
 			inputFileName = "br/ufg/inf/rdf/vc-db-2.rdf";
-		} else if (file == 3) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-3.rdf";
-		} else if (file == 4) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-4.rdf";
-		} else if (file == 5) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-5.rdf";
 		} else if (file == 6) {
 			inputFileName = "br/ufg/inf/rdf/vc-db-6.rdf";
 		} else {

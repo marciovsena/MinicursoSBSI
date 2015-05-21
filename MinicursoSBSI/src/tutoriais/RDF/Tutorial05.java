@@ -25,13 +25,13 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.util.FileManager;
 
 /**
- * Tutorial 5 - Leitura de arquivo de entrada na sintaxe RDF/XML e escrita do
- * mesmo na sa�da padr�o
+ * Tutorial 5 - Criacao de um MODELO RDF a partir da leitura de um arquivo RDF/XML e sua 
+ * serializacao para a sintaxe TURTLE
  */
 public class Tutorial05 extends Object {
 
 	// Caminho do arquivo de entrada no projeto Java corrente
-	static final String inputFileName = "br/ufg/inf/rdf/bus.ttl";
+	static final String inputFileName = "br/ufg/inf/rdf/vc-db-1.rdf";
 
 	public static void main(String args[]) {
 
@@ -51,7 +51,7 @@ public class Tutorial05 extends Object {
 		model.read(in, "");
 
 		// Escrita do MODELO RDF para a sa�da padr�o (usa a sintaxe W3C RDF/XML)
-		model.write(System.out);
+		model.write(System.out, "TURTLE");
 
 		// VAMOS ESCREVER ESSE GRAFO???
 	}

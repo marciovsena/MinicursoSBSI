@@ -15,6 +15,10 @@ import com.hp.hpl.jena.tdb.TDBFactory;
  *
  */
 
+/** 
+ * Métodos para a criação de um Dataset e operações de leitura e escrita no mesmo
+ */
+
 public class TDB_TripleStore {
 	
 	Dataset dataset = null;

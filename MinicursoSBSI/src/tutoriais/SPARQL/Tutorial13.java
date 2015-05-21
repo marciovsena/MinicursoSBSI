@@ -34,13 +34,13 @@ public class Tutorial13 {
 
 	public static void main(String args[]) {
 
-		// Busca por nomes e idades de recursos, recursos esses ordenados
-		// descrescentemente por idade
+		// Busca por nomes e idades de recursos, ao limite de X registros,
+		// ordenados descrescentemente por idade
 		String query = "PREFIX info:    <http://somewhere/peopleInfo#> "
 				+ "PREFIX vcard:   <http://www.w3.org/2001/vcard-rdf/3.0#> "
 				+ "SELECT ?name ?age " + "WHERE "
 				+ "{ ?person vcard:FN  ?name ." + "  ?person info:age ?age ."
-				+ "} ORDER BY desc(?age)";
+				+ "} ORDER BY ?age desc(?name)" + "LIMIT 4";
 		/*
 		 * querySPARQL - A string de consulta na linguagem SPARQL usarResultSet
 		 * - Imprimir resultados da consulta na forma tabular (true) ou em

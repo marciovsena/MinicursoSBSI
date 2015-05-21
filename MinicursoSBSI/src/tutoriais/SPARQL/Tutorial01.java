@@ -58,13 +58,13 @@ public class Tutorial01 {
 		String inputFileName = null;
 
 		if (file == 1) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-1.rdf";
+			inputFileName = "tutoriais/RDF/vc-db-1.rdf";
 		} else if (file == 2) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-2.rdf";
+			inputFileName = "tutoriais/RDF/vc-db-2.rdf";
 		} else if (file == 3) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-3.rdf";
+			inputFileName = "tutoriais/RDF/vc-db-3.rdf";
 		} else if (file == 4) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-4.rdf";
+			inputFileName = "tutoriais/RDF/vc-db-4.rdf";
 		} else {
 			throw new IllegalArgumentException("Arquivo: " + inputFileName
 					+ " nao encontrado!");

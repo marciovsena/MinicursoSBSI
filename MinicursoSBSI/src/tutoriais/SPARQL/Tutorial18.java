@@ -34,13 +34,11 @@ public class Tutorial18 {
 
 	public static void main(String args[]) {
 
-		// Retorna o sobrenome dos recursos e quantos deles possuem o mesmo
-		// sobrenome
+		// Retorna a m�dia das idades dos recursos
 		String query = "PREFIX info:    <http://somewhere/peopleInfo#> "
 				+ "PREFIX vcard:   <http://www.w3.org/2001/vcard-rdf/3.0#> "
-				+ "SELECT ?sobrenome (COUNT(?sobrenome) AS ?total) " 
-				+ "WHERE "
-				+ "{ ?person ?prop [vcard:Family  ?sobrenome] ." + "} GROUP BY ?sobrenome";
+				+ "SELECT (AVG(?age) AS ?total) " + "WHERE "
+				+ "{ ?person info:age  ?age . }";
 
 		/*
 		 * querySPARQL - A string de consulta na linguagem SPARQL usarResultSet
@@ -50,7 +48,7 @@ public class Tutorial18 {
 		 */
 
 		// Fonte de dados: 2 = vc-db-2.rdf
-		// Testar com arquivo de dados 2 ou 3 ...
+		// Testar com arquivo de dados 2, 5 ou 6 ...
 		queryModel(query, true, 2);
 	}
 
@@ -61,8 +59,10 @@ public class Tutorial18 {
 
 		if (file == 2) {
 			inputFileName = "br/ufg/inf/rdf/vc-db-2.rdf";
-		} else if (file == 3) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-3.rdf";
+		} else if (file == 5) {
+			inputFileName = "br/ufg/inf/rdf/vc-db-5.rdf";
+		} else if (file == 6) {
+			inputFileName = "br/ufg/inf/rdf/vc-db-6.rdf";
 		} else {
 			throw new IllegalArgumentException("Arquivo: " + inputFileName
 					+ " n�o encontrado!");

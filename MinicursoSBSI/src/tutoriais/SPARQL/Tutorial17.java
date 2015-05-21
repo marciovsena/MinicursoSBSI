@@ -34,11 +34,11 @@ public class Tutorial17 {
 
 	public static void main(String args[]) {
 
-		// Retorna a idade dos recursos e quantos deles possuem a mesma idade
+		// Retorna a soma das idades dos recursos
 		String query = "PREFIX info:    <http://somewhere/peopleInfo#> "
 				+ "PREFIX vcard:   <http://www.w3.org/2001/vcard-rdf/3.0#> "
-				+ "SELECT ?age (COUNT(?age) AS ?total) " + "WHERE "
-				+ "{ ?person info:age  ?age ." + "} GROUP BY ?age";
+				+ "SELECT (SUM(?age) AS ?total) " + "WHERE "
+				+ "{ ?person info:age  ?age . }";
 
 		/*
 		 * querySPARQL - A string de consulta na linguagem SPARQL usarResultSet
@@ -48,8 +48,8 @@ public class Tutorial17 {
 		 */
 
 		// Fonte de dados: 2 = vc-db-2.rdf
-		// Testar com arquivo de dados 2, 3 ou 6 ...
-		queryModel(query, true, 6);
+		// Testar com arquivo de dados 2, 5 ou 6 ...
+		queryModel(query, true, 5);
 	}
 
 	public static void queryModel(String querySPARQL, boolean usarResultSet,
@@ -59,8 +59,8 @@ public class Tutorial17 {
 
 		if (file == 2) {
 			inputFileName = "br/ufg/inf/rdf/vc-db-2.rdf";
-		} else if (file == 3) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-3.rdf";
+		} else if (file == 5) {
+			inputFileName = "br/ufg/inf/rdf/vc-db-5.rdf";
 		} else if (file == 6) {
 			inputFileName = "br/ufg/inf/rdf/vc-db-6.rdf";
 		} else {

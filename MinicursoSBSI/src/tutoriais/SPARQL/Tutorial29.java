@@ -34,15 +34,11 @@ public class Tutorial29 {
 
 	public static void main(String args[]) {
 
-		// Retorna um grafo RDF criando novas triplas no mesmo
+		// Retorna tudo sobre recursos que t�m idade maior que 24 anos
 		String query = "PREFIX info:    <http://somewhere/peopleInfo#> "
-				+ "PREFIX vcard:      <http://www.w3.org/2001/vcard-rdf/3.0#>"
-				+ "CONSTRUCT " + "{ ?suj   ?pred1  ?bnode ;"
-				+ "         vcard:nickname 'Smithy' ."
-				+ "  ?bnode ?pred2  ?obj1 ;" + "         ?pred3  ?obj2 ." + "}"
-				+ "WHERE " + "{ ?suj   ?pred1  ?bnode ."
-				+ "  ?bnode ?pred2  ?obj1 ;" + "         ?pred3  ?obj2 ."
-				+ " FILTER (?obj2 = 'Smith')" + "}";
+				+ "DESCRIBE * " + "WHERE { " + " ?suj info:age ?obj ."
+				+ " FILTER (?obj >= 25)" + "}";
+
 		/*
 		 * querySPARQL - A string de consulta na linguagem SPARQL file = N�mero
 		 * relativo ao arquivo contendo dados RDF
@@ -54,6 +50,9 @@ public class Tutorial29 {
 		// Fonte de dados: 2 = vc-db-2.rdf
 		// Fonte de dados: 3 = vc-db-3.rdf
 		// Fonte de dados: 4 = vc-db-4.rdf
+		// Fonte de dados: 5 = vc-db-5.rdf
+		// Fonte de dados: 6 = vc-db-6.rdf
+
 		queryModel(query, 1);
 	}
 
@@ -69,6 +68,10 @@ public class Tutorial29 {
 			inputFileName = "br/ufg/inf/rdf/vc-db-3.rdf";
 		} else if (file == 4) {
 			inputFileName = "br/ufg/inf/rdf/vc-db-4.rdf";
+		} else if (file == 5) {
+			inputFileName = "br/ufg/inf/rdf/vc-db-5.rdf";
+		} else if (file == 6) {
+			inputFileName = "br/ufg/inf/rdf/vc-db-6.rdf";
 		} else {
 			throw new IllegalArgumentException("Arquivo: " + inputFileName
 					+ " n�o encontrado!");
@@ -95,9 +98,9 @@ public class Tutorial29 {
 		// arquivo
 		QueryExecution qe = QueryExecutionFactory.create(query, model);
 
-		// M�todo execConstruct() executa consultas CONSTRUCT e retorna um grafo
-		// RDF
-		Model resultModel = qe.execConstruct();
+		// M�todo execDescribe() executa consultas DESCRIBE e retorna um grafo
+		// RDF que descreve o recurso procurado
+		Model resultModel = qe.execDescribe();
 		qe.close();
 
 		resultModel.write(System.out, "TURTLE");

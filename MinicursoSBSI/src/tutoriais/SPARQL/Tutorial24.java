@@ -34,13 +34,15 @@ public class Tutorial24 {
 
 	public static void main(String args[]) {
 
-		// Retorna V se existe um recurso que tenha idade, nome completo e
-		// sobrenome declarados
+		// Retorna um grafo RDF copiando apenas as triplas de recursos que
+		// possuem sobrenome 'Jones'
 		String query = "PREFIX info:    <http://somewhere/peopleInfo#> "
 				+ "PREFIX vcard:      <http://www.w3.org/2001/vcard-rdf/3.0#>"
-				+ "ASK " + "{ ?suj  info:age  ?age ; "
-				+ "        vcard:FN  ?nomeCompleto ;"
-				+ "        vcard:N   [vcard:Family ?sobrenome]." + "}";
+				+ "CONSTRUCT " + "{ ?suj   ?pred1  ?bnode ."
+				+ "  ?bnode ?pred2  ?obj1 ;" + "         ?pred3  ?obj2 ." + "}"
+				+ "WHERE " + "{ ?suj   ?pred1  ?bnode ."
+				+ "  ?bnode ?pred2  ?obj1 ;" + "         ?pred3  ?obj2 ."
+				+ " FILTER (?obj2 = 'Jones')" + "}";
 
 		/*
 		 * querySPARQL - A string de consulta na linguagem SPARQL file = N�mero
@@ -52,10 +54,7 @@ public class Tutorial24 {
 		// TESTE AS DEMAIS FONTES DE DADOS:
 		// Fonte de dados: 2 = vc-db-2.rdf
 		// Fonte de dados: 3 = vc-db-3.rdf
-		// Fonte de dados: 4 = vc-db-4.rdf
-		// Fonte de dados: 5 = vc-db-5.rdf
-		// Fonte de dados: 6 = vc-db-6.rdf
-		queryModel(query, 2);
+		queryModel(query, 1);
 	}
 
 	public static void queryModel(String querySPARQL, int file) {
@@ -68,12 +67,6 @@ public class Tutorial24 {
 			inputFileName = "br/ufg/inf/rdf/vc-db-2.rdf";
 		} else if (file == 3) {
 			inputFileName = "br/ufg/inf/rdf/vc-db-3.rdf";
-		} else if (file == 4) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-4.rdf";
-		} else if (file == 5) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-5.rdf";
-		} else if (file == 6) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-6.rdf";
 		} else {
 			throw new IllegalArgumentException("Arquivo: " + inputFileName
 					+ " n�o encontrado!");
@@ -100,11 +93,11 @@ public class Tutorial24 {
 		// arquivo
 		QueryExecution qe = QueryExecutionFactory.create(query, model);
 
-		// M�todo execAsk() retorna um valor booleano indicando se o padr�o de
-		// grafo casou os dados de entrada ou n�o
-		boolean result = qe.execAsk();
+		// M�todo execConstruct() executa consultas CONSTRUCT e retorna um grafo
+		// RDF
+		Model resultModel = qe.execConstruct();
 		qe.close();
 
-		System.out.println(result);
+		resultModel.write(System.out, "TURTLE");
 	}
 }

@@ -34,16 +34,13 @@ public class Tutorial12 {
 
 	public static void main(String args[]) {
 
-		// Retorna os nomes completos pela propriedade VCARD.FN de todos os
-		// recursos e tamb�m as idades de maiores de 24 anos,
-		// caso possua a propriedade INFO.AGE
+		// Busca por nomes e idades de recursos, ordenados por idade e de forma
+		// decrescente por nome
 		String query = "PREFIX info:    <http://somewhere/peopleInfo#> "
 				+ "PREFIX vcard:   <http://www.w3.org/2001/vcard-rdf/3.0#> "
 				+ "SELECT ?name ?age " + "WHERE "
-				+ "{ ?person vcard:FN  ?name ."
-				+ "  OPTIONAL { ?person info:age ?age . FILTER ( ?age > 24 ) }"
-				+ "}";
-
+				+ "{ ?person vcard:FN  ?name ." + "  ?person info:age ?age ."
+				+ "} ORDER BY ?age desc(?name)";
 		/*
 		 * querySPARQL - A string de consulta na linguagem SPARQL usarResultSet
 		 * - Imprimir resultados da consulta na forma tabular (true) ou em
@@ -54,8 +51,8 @@ public class Tutorial12 {
 		// Fonte de dados: 2 = vc-db-2.rdf
 
 		// TESTE AS DEMAIS FONTES DE DkADOS:
-		// Fonte de dados: 1,3 e 4 = vc-db-X.rdf
-		queryModel(query, true, 2);
+		// Fonte de dados: 1,3,4,5 e 6 = vc-db-X.rdf
+		queryModel(query, true, 6);
 	}
 
 	public static void queryModel(String querySPARQL, boolean usarResultSet,
@@ -71,6 +68,10 @@ public class Tutorial12 {
 			inputFileName = "br/ufg/inf/rdf/vc-db-3.rdf";
 		} else if (file == 4) {
 			inputFileName = "br/ufg/inf/rdf/vc-db-4.rdf";
+		} else if (file == 5) {
+			inputFileName = "br/ufg/inf/rdf/vc-db-5.rdf";
+		} else if (file == 6) {
+			inputFileName = "br/ufg/inf/rdf/vc-db-6.rdf";
 		} else {
 			throw new IllegalArgumentException("Arquivo: " + inputFileName
 					+ " n�o encontrado!");

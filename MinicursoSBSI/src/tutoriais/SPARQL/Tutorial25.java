@@ -34,37 +34,35 @@ public class Tutorial25 {
 
 	public static void main(String args[]) {
 
-		// Retorna um grafo RDF copiando TODAS as triplas da fonte de dados RDF
+		// Retorna um grafo RDF copiando apenas os recursos que t�m idade
+		// declarada
 		String query = "PREFIX info:    <http://somewhere/peopleInfo#> "
 				+ "PREFIX vcard:      <http://www.w3.org/2001/vcard-rdf/3.0#>"
-				+ "CONSTRUCT " + "{ ?suj  ?pred  ?obj }" + "WHERE "
-				+ "{ ?suj ?pred ?obj ." + "}";
+				+ "CONSTRUCT " + "{ ?suj   ?pred1  ?bnode ;"
+				+ "         info:age  ?age ." + "  ?bnode ?pred2  ?obj ." + "}"
+				+ "WHERE " + "{ ?suj   info:age  ?age ;"
+				+ "         ?pred1    ?bnode ." + "  ?bnode ?pred2    ?obj"
+				+ "}";
 
 		/*
 		 * querySPARQL - A string de consulta na linguagem SPARQL file = N�mero
 		 * relativo ao arquivo contendo dados RDF
 		 */
 
-		// Fonte de dados: 1 = vc-db-1.rdf
+		// Fonte de dados: 3 = vc-db-3.rdf
 
 		// TESTE AS DEMAIS FONTES DE DADOS:
-		// Fonte de dados: 2 = vc-db-2.rdf
-		// Fonte de dados: 3 = vc-db-3.rdf
 		// Fonte de dados: 4 = vc-db-4.rdf
 		// Fonte de dados: 5 = vc-db-5.rdf
 		// Fonte de dados: 6 = vc-db-6.rdf
-		queryModel(query, 1);
+		queryModel(query, 3);
 	}
 
 	public static void queryModel(String querySPARQL, int file) {
 
 		String inputFileName = null;
 
-		if (file == 1) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-1.rdf";
-		} else if (file == 2) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-2.rdf";
-		} else if (file == 3) {
+		if (file == 3) {
 			inputFileName = "br/ufg/inf/rdf/vc-db-3.rdf";
 		} else if (file == 4) {
 			inputFileName = "br/ufg/inf/rdf/vc-db-4.rdf";

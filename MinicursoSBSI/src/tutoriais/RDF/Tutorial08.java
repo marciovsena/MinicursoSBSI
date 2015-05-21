@@ -18,66 +18,63 @@
 
 package tutoriais.RDF;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.SimpleSelector;
-import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
-import com.hp.hpl.jena.util.FileManager;
-import com.hp.hpl.jena.vocabulary.VCARD;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.vocabulary.RDFS;
 
 /**
- * Tutorial 8 - Uso de m�todos Selector para consulta em MODELOS RDF via API RDF
- * do Jena
+ * Tutorial 11 - Manipulando LITERAIS
  */
 public class Tutorial08 extends Object {
 
-	// Caminho do arquivo de entrada no projeto Java corrente
-	static final String inputFileName = "br/ufg/inf/rdf/vc-db-1.rdf";
-
-	/**
-	 * @param args
-	 */
 	public static void main(String args[]) {
 
 		// Cria��o de um MODELO RDF vazio
 		Model model = ModelFactory.createDefaultModel();
 
-		// Uso da classe Java FILEMANAGER para localizar o arquivo de entrada
-		InputStream in = FileManager.get().open(inputFileName);
-		if (in == null) {
-			throw new IllegalArgumentException("File: " + inputFileName
-					+ " not found");
-		}
-
-		// Leitura do arquivo RDF de entrada na sintaxe padr�o RDF/XML
-		model.read(new InputStreamReader(in), "");
+		// Cria��o de um RECURSO AN�NIMO (ou BLANK NODE), pois n�o tem URI
+		// passada como par�metro
+		Resource r = model.createResource();
 
 		/*
-		 * Seleciona todas as TRIPLAS do MODELO (argh!) e usa a classe
-		 * SimpleSelector para filtrar dessas TRIPLAS os RECURSOS que possuem a
-		 * PROPRIEDADE FN da ontologia VCARD e cujo OBJETO LITERAL termina com
-		 * uma dada STRING Maiores detalhes no Tutorial da API RDF do Jena (link
-		 * Consulta em Modelos)
+		 * Adi��o de PROPRIEDADES ao RECURSO AN�NIMO com os respectivos VALORES
+		 * DE PROPRIEDADES como LITERAIS
+		 * 
+		 * O m�todo createLiteral() permite atribuir ao LITERAL criado o seu
+		 * respectivo idioma
+		 * 
+		 * A propriedade RDFS.label definida na linguagem RDF Schema, padr�o
+		 * para constru��o de ontologias na Web, � utilizada para fornecer uma
+		 * uma vers�o leg�vel para humanos a respeito do nome de um RECURSO
+		 * qualquer
+		 * 
+		 * Existem LITERAIS sem tipagem (ou seja, strings impl�citas), com
+		 * tipagem (associando o tipo de dado do XML SCHEMA) e podem existir
+		 * literais que representam elementos XML
+		 * 
+		 * O atributo rdf:parseType="Literal" � aplicado a OBJETOS que possuem
+		 * LITERAIS com elementos XML
 		 */
-		StmtIterator iter = model.listStatements(new SimpleSelector(null,
-				VCARD.FN, (RDFNode) null) {
-			@Override
-			public boolean selects(Statement s) {
-				return s.getString().endsWith("Smith");
-			}
-		});
-		if (iter.hasNext()) {
-			System.out.println("The database contains vcards for:");
-			while (iter.hasNext()) {
-				System.out.println("  " + iter.nextStatement().getString());
-			}
-		} else {
-			System.out.println("No Smith's were found in the database");
-		}
+		r.addProperty(RDFS.label, model.createLiteral("chat", "en"))
+				.addProperty(RDFS.label, model.createLiteral("chat", "fr"))
+				.addProperty(RDFS.label,
+						model.createLiteral("<em>chat</em>", true));
+
+		// Serializa o novo modelo na sintaxe padr�o W3C RDF/XML
+		model.write(System.out, "");
+		System.out.println();
+
+		// Cria��o de novo MODELO RDF
+		model = ModelFactory.createDefaultModel();
+
+		// Cria��o de um RECURSO AN�NIMO
+		r = model.createResource();
+
+		// Adi��o de duas PROPRIEDADES com o mesmo VALOR
+		r.addProperty(RDFS.label, "15").addLiteral(RDFS.label, 12.5);
+
+		// Serializa o novo modelo na sintaxe N-TRIPLE
+		model.write(System.out);
 	}
 }

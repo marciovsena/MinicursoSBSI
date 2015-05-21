@@ -34,38 +34,38 @@ public class Tutorial21 {
 
 	public static void main(String args[]) {
 
-		// Retorna a m�dia das idades dos recursos de mesmo nome, agrupadas por nome, mas
-		// apenas onde a m�dia � maior que 24
-
-		String query = "PREFIX info:    <http://somewhere/peopleInfo#> "
-				+ "PREFIX vcard:   <http://www.w3.org/2001/vcard-rdf/3.0#> "
-				+ "SELECT ?name (AVG(?age) AS ?total) " 
-				+ "WHERE "
-				+ "{ ?person info:age  ?age . " 
-				+ "  ?person vcard:FN  ?name"
-				+ "} " 
-				+ "GROUP BY ?name" 
-				+ " HAVING (AVG(?age) > 24)";
+		// Retorna V se existe um recurso cujo sobrenome � 'Smith'
+		String query = "PREFIX vcard:      <http://www.w3.org/2001/vcard-rdf/3.0#>"
+				+ "ASK " + "{ ?s  vcard:Family  'Smith' . " + "}";
 
 		/*
-		 * querySPARQL - A string de consulta na linguagem SPARQL usarResultSet
-		 * - Imprimir resultados da consulta na forma tabular (true) ou em
-		 * RDF/XML padr�o (false) file = N�mero relativo ao arquivo contendo
-		 * dados RDF
+		 * querySPARQL - A string de consulta na linguagem SPARQL file = N�mero
+		 * relativo ao arquivo contendo dados RDF
 		 */
 
+		// Fonte de dados: 1 = vc-db-1.rdf
+
+		// TESTE AS DEMAIS FONTES DE DADOS:
 		// Fonte de dados: 2 = vc-db-2.rdf
-		// Testar com arquivo de dados 2, 5 ou 6 ...
-		queryModel(query, true, 6);
+		// Fonte de dados: 3 = vc-db-3.rdf
+		// Fonte de dados: 4 = vc-db-4.rdf
+		// Fonte de dados: 5 = vc-db-5.rdf
+		// Fonte de dados: 6 = vc-db-6.rdf
+		queryModel(query, 2);
 	}
 
-	public static void queryModel(String querySPARQL, boolean usarResultSet,
-			int file) {
+	public static void queryModel(String querySPARQL, int file) {
 
 		String inputFileName = null;
 
-		if (file == 2) {
+		if (file == 1) {
+			inputFileName = "br/ufg/inf/rdf/vc-db-1.rdf";
+		} else if (file == 2) {
 			inputFileName = "br/ufg/inf/rdf/vc-db-2.rdf";
+		} else if (file == 3) {
+			inputFileName = "br/ufg/inf/rdf/vc-db-3.rdf";
+		} else if (file == 4) {
+			inputFileName = "br/ufg/inf/rdf/vc-db-4.rdf";
 		} else if (file == 5) {
 			inputFileName = "br/ufg/inf/rdf/vc-db-5.rdf";
 		} else if (file == 6) {
@@ -96,17 +96,11 @@ public class Tutorial21 {
 		// arquivo
 		QueryExecution qe = QueryExecutionFactory.create(query, model);
 
-		if (usarResultSet) {
-			// Executa a consulta definida na string SPARQL e armazena em um
-			// ResultSet
-			ResultSet results = qe.execSelect();
+		// M�todo execAsk() retorna um valor booleano indicando se o padr�o de
+		// grafo casou os dados de entrada ou n�o
+		boolean result = qe.execAsk();
+		qe.close();
 
-			// Formatador dos resultados de uma consulta
-			ResultSetFormatter.out(System.out, results, query);
-		} else {
-
-			// Escrita do MODELO RDF na sintaxe padr�o W3C RDF/XML
-			model.write(System.out);
-		}
+		System.out.println(result);
 	}
 }

@@ -34,11 +34,18 @@ public class Tutorial19 {
 
 	public static void main(String args[]) {
 
-		// Retorna a soma das idades dos recursos
+		// Retorna a m�dia das idades dos recursos de mesmo nome, agrupadas por nome, mas
+		// apenas onde a m�dia � maior que 24
+
 		String query = "PREFIX info:    <http://somewhere/peopleInfo#> "
 				+ "PREFIX vcard:   <http://www.w3.org/2001/vcard-rdf/3.0#> "
-				+ "SELECT (SUM(?age) AS ?total) " + "WHERE "
-				+ "{ ?person info:age  ?age . }";
+				+ "SELECT ?name (AVG(?age) AS ?total) " 
+				+ "WHERE "
+				+ "{ ?person info:age  ?age . " 
+				+ "  ?person vcard:FN  ?name"
+				+ "} " 
+				+ "GROUP BY ?name" 
+				+ " HAVING (AVG(?age) > 24)";
 
 		/*
 		 * querySPARQL - A string de consulta na linguagem SPARQL usarResultSet
@@ -49,7 +56,7 @@ public class Tutorial19 {
 
 		// Fonte de dados: 2 = vc-db-2.rdf
 		// Testar com arquivo de dados 2, 5 ou 6 ...
-		queryModel(query, true, 5);
+		queryModel(query, true, 6);
 	}
 
 	public static void queryModel(String querySPARQL, boolean usarResultSet,
