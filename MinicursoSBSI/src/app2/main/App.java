@@ -15,13 +15,14 @@ public class App {
         System.out.println( "=== PRINCIPAL - OPÇÕES ===" );
         System.out.println( "1 - Listar Pessoas" );
         System.out.println( "2 - Listar Areas de conhecimento" );
-        System.out.println( "3 - Sugerir Pessoas em relação a áreas de conhecimento" );
-        System.out.println( "4 - Sugerir Pessoas em relação as subareas" );
-        System.out.println( "5 - Sugerir Pessoas em relação a área 'Teste'" );
-        System.out.println( "6 - Persistir no Repositório TDB" );
-        System.out.println( "7 - Imprimir Serialização TURTLE" );
-        System.out.println( "8 - Deletar Registros do TDB" );
-        System.out.println( "9 - Sair" );
+		System.out.println( "3 - Listar Subareas" );
+        System.out.println( "4 - Sugerir Pessoas em relação a áreas de conhecimento" );
+        System.out.println( "5 - Sugerir Pessoas em relação as subareas" );
+        System.out.println( "6 - Sugerir Pessoas em relação a área 'Performance And Reliability'" );
+        System.out.println( "7 - Persistir no Repositório TDB" );
+        System.out.println( "8 - Imprimir Serialização TURTLE" );
+        System.out.println( "9 - Deletar Registros do TDB" );
+        System.out.println( "10 - Sair" );
         System.out.print( "DIGITE UM NÚMERO: " );
         System.out.println("");
 	}
@@ -76,57 +77,39 @@ public class App {
         		/**
         		 * 
         		 */
-//        		ModelController.listarSubareas();
+        		ModelController.listarSubareas();
         	}
         	else if (opcao == 4){
         		/**
         		 */
-//        		ModelController.listarRevisores();
+        		ModelController.sugerirPessoasParaTodasAreas();
         	}
         	
         	else if (opcao == 5){
         		/**
         		 */
-//        		ModelController.listarArtigosPorArea();
-        	}
-        	
-        	else if (opcao == 3){
-        		/**
-        		 */
-//        		ModelController.listarArtigosPorSubarea();
-        	}
-        	
-        	else if (opcao == 4){
-        		/**
-        		 */
-//        		ModelController.sugerirRevisoresParaTodosArtigos();
-        	}
-        	
-        	else if (opcao == 5){
-        		/**
-        		 */
-//        		ModelController.sugerirRevisoresParaArtigoEspecifico();
+				ModelController.sugerirPessoasParaTodasSubareas();
         	}
         	
         	else if (opcao == 6){
         		/**
         		 */
-//        		ModelController.persistirDadosRepositorioTDB();
-        	}
-        	
-        	else if (opcao == 7){
-        		/**
-        		 */
-//        		ModelController.imprimirModeloTURTLE();
+				ModelController.sugerirPessoasParaAreaEspecifica();
         	}
         	
         	else if (opcao == 8){
         		/**
         		 */
-//        		ModelController.deletarDadosRepositorioTDB();
+        		ModelController.imprimirModeloTURTLE();
         	}
         	
         	else if (opcao == 9){
+        		/**
+        		 */
+        		ModelController.deletarDadosRepositorioTDB();
+        	}
+        	
+        	else if (opcao == 10){
         		/**
         		 * Sair do programa
         		 */
