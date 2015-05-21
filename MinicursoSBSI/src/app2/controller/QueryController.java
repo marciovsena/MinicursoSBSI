@@ -19,8 +19,8 @@ public class QueryController {
 				+ "SELECT DISTINCT ?person ?name " 
 				+ "WHERE "
 				+ "{"
-				+ "?person rdf:type foaf:Person ."
-				+ "?person foaf:firstName ?name ."
+				+ "?person rdf:type foaf:Person . "
+				+ "?person foaf:firstName ?name . "
 				+ "}";
 		System.out.println("Foaf-Person: ");
 		queryModel(query, model);
@@ -34,10 +34,85 @@ public class QueryController {
 				+ "SELECT DISTINCT ?uri " 
 				+ "WHERE "
 				+ "{"
-				+ "?uri rdf:type ?acm ."
+				+ "?uri rdf:type ?acm . "
 				+ "FILTER regex(str(?uri), 'http://linkserver.icmc.usp.br/ckonto/acm', 'i')"
 				+ "}";
 		System.out.println("Áreas: ");
+		queryModel(query, model);
+		System.out.println();
+	}
+
+	public static void getSubAreas(Model model) {
+		String query;
+		query = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
+				+ "SELECT DISTINCT ?subareaLabel ?areaLabel "
+				+ "WHERE "
+				+ "{"
+				+ "?uri rdfs:subClassOf ?area . "
+				+ "?uri rdfs:label ?subareaLabel . "
+				+ "?area rdfs:label ?areaLabel "
+				+ "}";
+		//order by areas
+		System.out.println("Subareas: ");
+		queryModel(query, model);
+		System.out.println();
+	}
+
+	public static void sugerirPessoasArea(Model model) {
+		String query;
+		query = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
+				+ "PREFIX acm: <http://linkserver.icmc.usp.br/ckonto/acm#>"
+				+ "SELECT ?p1 ?p2 ?area "
+				+ "WHERE "
+				+ "{"
+				+ "?p1 acm:hasKnowledgeOf ?area . "
+				+ "?p2 acm:hasKnowledgeOf ?area . "
+				+ "FILTER ("
+				+ "?p1 != ?p2"
+				+ ")"
+				+ "}";
+		//order by areas
+		System.out.println("Recomendação de pessoas por áreas: ");
+		queryModel(query, model);
+		System.out.println();
+	}
+
+	public static void sugerirPessoasSubarea(Model model) {
+		String query;
+		query = "PREFIX foaf: <http://www.semanticweb.org/ontologies/2013/10/foaf.owl#>"
+				+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
+				+ "PREFIX acm: <http://linkserver.icmc.usp.br/ckonto/acm#> "
+				+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
+				+ "SELECT DISTINCT ?pessoa1  ?subArea "
+				+ "WHERE "
+				+ "{"
+				+ "?pessoa1 rdf:type foaf:Person . "
+				+ "?pessoa1 foaf:hasKnowledgeOf ?area . "
+				+ "?subArea rdfs:subClassOf ?area ."
+				+ "?pessoa2 acm:hasKnowledgeOf ?subArea . "
+				+ "FILTER ("
+				+ "?subArea != ?area"
+				+ ")"
+				+ "}";
+		//order by areas
+		System.out.println("Recomendação de pessoas por subareas: ");
+		queryModel(query, model);
+		System.out.println();
+	}
+
+	public static void sugerirPessoasAreaEspecifica(Model model) {
+		String query;
+		query = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
+				+ "PREFIX acm: <http://linkserver.icmc.usp.br/ckonto/acm#>"
+				+ "SELECT ?p1 ?p2 ?area1 "
+				+ "WHERE "
+				+ "{"
+				+ "?p1 acm:hasKnowledgeOf acm:B_8_Performance_And_Reliability . "
+				+ "acm:B_8_Performance_And_Reliability rdfs:subClassOf ?areaPai . "
+				+ "?p1 acm:hasKnowledgeOf ?areaPai "
+				+ "}";
+		//order by areas
+		System.out.println("Recomendação de pessoas por área específica: Performance And Reliability ");
 		queryModel(query, model);
 		System.out.println();
 	}
