@@ -2,30 +2,30 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/aterm-java-1.6.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/jena-arq-2.10.0.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/jena-core-2.10.0.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/jena-core-2.12.1.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/jena-iri-0.9.5.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/jena-tdb-0.10.0.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/log4j-1.2.16.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/owlapi-distribution-3.4.10.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/pellet-cli.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/pellet-core.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/pellet-datatypes.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/pellet-el.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/pellet-explanation.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/pellet-jena.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/pellet-modularity.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/pellet-owlapiv3.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/pellet-pellint.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/pellet-query.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/pellet-rules.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/pellet-test.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/slf4j-api-1.6.4.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/slf4j-log4j12-1.6.4.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/xercesImpl-2.10.0.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/xml-apis-1.4.01.jar"/>
-	<classpathentry kind="lib" path="/Users/marciovinicius/Documents/workspace/mestrado/MinicursoSBSI/MinicursoSBSI/lib/jgrapht-jdk1.5-0.7.3.jar"/>
+	<classpathentry kind="lib" path="lib/aterm-java-1.6.jar"/>
+	<classpathentry kind="lib" path="lib/jena-arq-2.10.0.jar"/>
+	<classpathentry kind="lib" path="lib/jena-core-2.10.0.jar"/>
+	<classpathentry kind="lib" path="lib/jena-core-2.12.1.jar"/>
+	<classpathentry kind="lib" path="lib/jena-iri-0.9.5.jar"/>
+	<classpathentry kind="lib" path="lib/jena-tdb-0.10.0.jar"/>
+	<classpathentry kind="lib" path="lib/jgrapht-jdk1.5-0.7.3.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="lib/owlapi-distribution-3.4.10.jar"/>
+	<classpathentry kind="lib" path="lib/pellet-cli.jar"/>
+	<classpathentry kind="lib" path="lib/pellet-core.jar"/>
+	<classpathentry kind="lib" path="lib/pellet-datatypes.jar"/>
+	<classpathentry kind="lib" path="lib/pellet-el.jar"/>
+	<classpathentry kind="lib" path="lib/pellet-explanation.jar"/>
+	<classpathentry kind="lib" path="lib/pellet-jena.jar"/>
+	<classpathentry kind="lib" path="lib/pellet-modularity.jar"/>
+	<classpathentry kind="lib" path="lib/pellet-owlapiv3.jar"/>
+	<classpathentry kind="lib" path="lib/pellet-pellint.jar"/>
+	<classpathentry kind="lib" path="lib/pellet-query.jar"/>
+	<classpathentry kind="lib" path="lib/pellet-rules.jar"/>
+	<classpathentry kind="lib" path="lib/pellet-test.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-1.6.4.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-log4j12-1.6.4.jar"/>
+	<classpathentry kind="lib" path="lib/xercesImpl-2.10.0.jar"/>
+	<classpathentry kind="lib" path="lib/xml-apis-1.4.01.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
