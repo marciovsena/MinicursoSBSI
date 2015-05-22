@@ -45,7 +45,7 @@ public class Tutorial24 {
 				+ " FILTER (?obj2 = 'Jones')" + "}";
 
 		/*
-		 * querySPARQL - A string de consulta na linguagem SPARQL file = N�mero
+		 * querySPARQL - A string de consulta na linguagem SPARQL file = Numero
 		 * relativo ao arquivo contendo dados RDF
 		 */
 
@@ -62,17 +62,17 @@ public class Tutorial24 {
 		String inputFileName = null;
 
 		if (file == 1) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-1.rdf";
+			inputFileName = "tutoriais/RDF/vc-db-1.rdf";
 		} else if (file == 2) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-2.rdf";
+			inputFileName = "tutoriais/RDF/vc-db-2.rdf";
 		} else if (file == 3) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-3.rdf";
+			inputFileName = "tutoriais/RDF/vc-db-3.rdf";
 		} else {
 			throw new IllegalArgumentException("Arquivo: " + inputFileName
-					+ " n�o encontrado!");
+					+ " nao encontrado!");
 		}
 
-		// Cria��o de um MODELO RDF vazio
+		// Criacao de um MODELO RDF vazio
 		Model model = ModelFactory.createDefaultModel();
 
 		// Uso da classe Java FILEMANAGER para localizar o arquivo de entrada
@@ -82,18 +82,18 @@ public class Tutorial24 {
 					+ " nao encontrado");
 		}
 
-		// Leitura do arquivo RDF de entrada na sintaxe padr�o RDF/XML
+		// Leitura do arquivo RDF de entrada na sintaxe padrao RDF/XML
 		model.read(in, "");
 
-		// Cria��o de um objeto Query com a string de consulta na linguagem
+		// Criacao de um objeto Query com a string de consulta na linguagem
 		// SPARQL
 		Query query = QueryFactory.create(querySPARQL);
 
-		// Interface para a execu��o de uma �nica consulta sobre o GRAFO do
+		// Interface para a execucao de uma unica consulta sobre o GRAFO do
 		// arquivo
 		QueryExecution qe = QueryExecutionFactory.create(query, model);
 
-		// M�todo execConstruct() executa consultas CONSTRUCT e retorna um grafo
+		// Metodo execConstruct() executa consultas CONSTRUCT e retorna um grafo
 		// RDF
 		Model resultModel = qe.execConstruct();
 		qe.close();

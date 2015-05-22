@@ -53,7 +53,7 @@ public class Tutorial04 extends Object {
 								.addProperty(VCARD.Given, givenName)
 								.addProperty(VCARD.Family, familyName));
 
-		// Serializacao do MODELO RDF para a sintaxe padr�o W3C RDF/XML
+		// Serializacao do MODELO RDF para a sintaxe padrao W3C RDF/XML
 		// model.write(System.out);
 		model.write(System.out, "RDF/XML");
 

@@ -15,31 +15,16 @@ import com.hp.hpl.jena.tdb.TDBFactory;
  *
  */
 
-/** 
- * Métodos para a criação de um Dataset e operações de leitura e escrita no mesmo
- */
-
 public class TDB_TripleStore {
 	
 	Dataset dataset = null;
 
 	public TDB_TripleStore() {
-		String diretorio = "MinicursoSBSI_DatabaseTDB/Dataset";
+		String diretorio = "MinicursoSBSI_DatabaseTDB/Dataset_example";
 		dataset = TDBFactory.createDataset(diretorio);
-		// String assemblerFile = "Store/tdb-assembler.ttl";
-		// dataset = TDBFactory.assembleDataset(assemblerFile);
 	}
 
-	/*
-	public void createConection() {
-		String diretorio = "HermesDatabases/DatasetHW";
-		dataset = TDBFactory.createDataset(diretorio);
-		// String assemblerFile = "Store/tdb-assembler.ttl";
-		// dataset = TDBFactory.assembleDataset(assemblerFile);
-	}
-	*/
-
-	public void update(Model model) {
+	public void updateModel(Model model) {
 		try {
 			dataset.begin(ReadWrite.WRITE);
 			Model modelTDB = dataset.getDefaultModel();
@@ -51,7 +36,7 @@ public class TDB_TripleStore {
 		}
 	}
 
-	public void consultar(String query) {
+	public void queryModel(String query) {
 		dataset.begin(ReadWrite.READ);
 		try {
 			QueryExecution qexec = QueryExecutionFactory.create(query, dataset);
@@ -61,13 +46,12 @@ public class TDB_TripleStore {
 			} finally {
 				qexec.close();
 			}
-			// Model model = dataset.getDefaultModel();
 		} finally {
 			dataset.end();
 		}
 	}
 	
-	public void removerDados(Model model) {
+	public void removeModel(Model model) {
 		try {
 			dataset.begin(ReadWrite.WRITE);
 			Model modelTDB = dataset.getDefaultModel();
@@ -79,8 +63,9 @@ public class TDB_TripleStore {
 		}
 	}
 
-	public void fecharConexao() {
+	public void close() {
 		dataset.close();
 	}	
 
 }
+

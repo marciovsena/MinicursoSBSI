@@ -25,17 +25,17 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.util.FileManager;
 
 /**
- * Tutorial 9 - Opera��es sobre Grafos
+ * Tutorial 9 - Operacoes sobre Grafos
  */
 public class Tutorial07 extends Object {
 
 	// Caminho dos arquivos de entrada no projeto Java corrente
-	static final String inputFileName1 = "br/ufg/inf/rdf/vc-db-3.rdf";
-	static final String inputFileName2 = "br/ufg/inf/rdf/vc-db-4.rdf";
+	static final String inputFileName1 = "tutoriais/RDF/vc-db-3.rdf";
+	static final String inputFileName2 = "tutoriais/RDF/vc-db-4.rdf";
 
 	public static void main(String args[]) {
 
-		// Cria��o de dois MODELOS / GRAFOS RDF vazios
+		// Criacao de dois MODELOS / GRAFOS RDF vazios
 		Model model1 = ModelFactory.createDefaultModel();
 		Model model2 = ModelFactory.createDefaultModel();
 
@@ -52,22 +52,23 @@ public class Tutorial07 extends Object {
 					+ " not found");
 		}
 
-		// Leitura dos dois arquivos RDF de entrada na sintaxe padr�o RDF/XML
+		// Leitura dos dois arquivos RDF de entrada na sintaxe padrao RDF/XML
 		model1.read(in1, "");
 		model2.read(in2, "");
 
-		// Uni�o dos dois GRAFOS
+		// Uniao dos dois GRAFOS
 		Model union = model1.union(model2);
 
-		// Intersec��o dos dois GRAFOS
+		// Interseccao dos dois GRAFOS
 		// Model inter = model1.intersection(model2);
 
-		// Diferen�a do GRAFO 1 para o GRAFO 2 (o que o GRAFO 1 tem que o GRAFO
-		// 2 n�o tem)
+		// Diferenca do GRAFO 1 para o GRAFO 2 (o que o GRAFO 1 tem que o GRAFO
+		// 2 nao tem)
 		//Model diff = model2.difference(model1);
 
-		// Serializa��o do MODELO RDF resultante para a sintaxe N-TRIPLE
+		// Serializacao do MODELO RDF resultante para a sintaxe TURTLE
 		union.write(System.out, "TURTLE");
+		
 		System.out.println();
 	}
 }
