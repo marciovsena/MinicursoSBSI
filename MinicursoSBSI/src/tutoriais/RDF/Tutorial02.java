@@ -24,28 +24,28 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.VCARD;
 
 /**
- * Tutorial 2 - Cria��o de RECURSOS como VALORES DE PROPRIEDADES
+ * Tutorial 2 - Criacao de RECURSOS como VALORES DE PROPRIEDADES
  */
 public class Tutorial02 extends Object {
 
 	public static void main(String args[]) {
 
-		// String para cria��o de URI de RECURSO
+		// String para criacao de URI de RECURSO
 		String personURI = "http://somewhere/JohnSmith";
 
-		// Strings para cria��o de VALORES DE PROPRIEDADE do tipo LITERAL
+		// Strings para criacao de VALORES DE PROPRIEDADE do tipo LITERAL
 		String givenName = "John";
 		String familyName = "Smith";
 		String fullName = givenName + " " + familyName;
 
-		// Cria��o de um MODELO RDF vazio
+		// Criacao de um MODELO RDF vazio
 		Model model = ModelFactory.createDefaultModel();
 
-		// Cria��o de um RECURSO e associa��o do mesmo ao MODELO RDF
-		// rec�m-criado
-		// Adi��o das PROPRIEDADES ao RECURSO usando estilo de programa��o em
+		// Criacao de um RECURSO e associacao do mesmo ao MODELO RDF
+		// recem-criado
+		// Adicao das PROPRIEDADES ao RECURSO usando estilo de programacao em
 		// cascata
-		// Linha 48 cria um RECURSO AN�NIMO (sem URI passada como par�metro)
+		// Linha 48 cria um RECURSO ANONIMO (sem URI passada como paremetro)
 		Resource johnSmith = model
 				.createResource(personURI)
 				.addProperty(VCARD.FN, fullName)
@@ -55,8 +55,8 @@ public class Tutorial02 extends Object {
 								.addProperty(VCARD.Given, givenName)
 								.addProperty(VCARD.Family, familyName));
 
-		// Escrita do MODELO RDF na sintaxe padr�o W3C RDF/XML (o atributo
-		// rdf:nodeID � utilizado especialmente para BLANK NODES)
+		// Escrita do MODELO RDF na sintaxe padrao W3C RDF/XML (o atributo
+		// rdf:nodeID e utilizado especialmente para BLANK NODES)
 		model.write(System.out);
 	}
 }

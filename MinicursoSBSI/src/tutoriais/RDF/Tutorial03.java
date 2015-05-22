@@ -28,23 +28,23 @@ import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.vocabulary.VCARD;
 
 /**
- * Tutorial 3 - Uso de m�todos de acesso a DECLARA��ES (ou STATEMENTS)
+ * Tutorial 3 - Uso de metodos de acesso a DECLARACOES (ou STATEMENTS)
  */
 public class Tutorial03 extends Object {
 	public static void main(String args[]) {
 
-		// String para cria��o de URI de RECURSO
+		// String para criacao de URI de RECURSO
 		String personURI = "http://somewhere/JohnSmith";
 
-		// Strings para cria��o de VALORES DE PROPRIEDADE do tipo LITERAL
+		// Strings para criacao de VALORES DE PROPRIEDADE do tipo LITERAL
 		String givenName = "John";
 		String familyName = "Smith";
 		String fullName = givenName + " " + familyName;
 
-		// Cria��o de um MODELO RDF vazio
+		// Criacao de um MODELO RDF vazio
 		Model model = ModelFactory.createDefaultModel();
 
-		// Cria��o e associa��o de um RECURSO a um MODELO RDF, e adi��o em
+		// Criacao e associacao de um RECURSO a um MODELO RDF, e adicao em
 		// cascata de PROPRIEDADES a esse RECURSO
 		Resource johnSmith = model
 				.createResource(personURI)
@@ -55,30 +55,30 @@ public class Tutorial03 extends Object {
 								.addProperty(VCARD.Given, givenName)
 								.addProperty(VCARD.Family, familyName));
 
-		// Retorna todas as DECLARA��ES (ou TRIPLAS) do MODELO RDF
+		// Retorna todas as DECLARACOES (ou TRIPLAS) do MODELO RDF
 		StmtIterator iter = model.listStatements();
 
-		// Cada elemento do StmtIterator � uma TRIPLA, ent�o pode-se obter os
+		// Cada elemento do StmtIterator e uma TRIPLA, entao pode-se obter os
 		// respectivos SUJEITO, PREDICADO e OBJETO de cada TRIPLA
 		while (iter.hasNext()) {
-			Statement stmt = iter.nextStatement(); // obt�m a pr�xima TRIPLA
-			Resource subject = stmt.getSubject(); // obt�m o SUJEITO
-			Property predicate = stmt.getPredicate(); // obt�m o PREDICADO
-			RDFNode object = stmt.getObject(); // obt�m o OBJETO (pode ser uma
+			Statement stmt = iter.nextStatement(); // obtem a prexima TRIPLA
+			Resource subject = stmt.getSubject(); // obtem o SUJEITO
+			Property predicate = stmt.getPredicate(); // obtem o PREDICADO
+			RDFNode object = stmt.getObject(); // obtem o OBJETO (pode ser uma
 												// URI de RECURSO ou um LITERAL
 												// ==> RDFNode)
 
-			// M�todo toString() retorna uma representa��o em String das URIs de
+			// Metodo toString() retorna uma representacao em String das URIs de
 			// RECURSOS e PROPRIEDADES
 			System.out.print(subject.toString());
 			System.out.print(" " + predicate.toString() + " ");
 
-			// Verifica��o do tipo de objeto Java: RECURSO (linha 71) ou LITERAL
+			// Verificacao do tipo de objeto Java: RECURSO (linha 71) ou LITERAL
 			// (linha 73)???
 			if (object instanceof Resource) {
 				System.out.print(object.toString());
 			} else {
-				// OBJETO � um LITERAL
+				// OBJETO e um LITERAL
 				System.out.print(" \"" + object.toString() + "\"");
 			}
 			System.out.println(" .");
