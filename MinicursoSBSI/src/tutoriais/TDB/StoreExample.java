@@ -29,7 +29,7 @@ import java.io.*;
 public class StoreExample {
 
 	// Caminho do arquivo de entrada no projeto Java corrente
-	static final String inputFileName = "tutoriais/RDF/vc-db-2.rdf";
+	static final String inputFileName = "tutoriais/RDF/vc-db-6.rdf";
 
 	public static void main(String args[]) {
 
@@ -47,12 +47,12 @@ public class StoreExample {
 		model.read(in, "");
 		
 		TDB_TripleStore tdb = new TDB_TripleStore();
-		tdb.update(model);
+		tdb.updateModel(model);
 		
 	    //Criação de String de consulta na sintaxe da linguagem SPARQL
 		 String queryString = "SELECT ?s ?p ?o " +
 				 "WHERE {?s ?p ?o}";
 
-		tdb.consultar(queryString);
+		tdb.queryModel(queryString);
 	}
 }

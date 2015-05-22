@@ -40,7 +40,7 @@ public class Tutorial29 {
 				+ " FILTER (?obj >= 25)" + "}";
 
 		/*
-		 * querySPARQL - A string de consulta na linguagem SPARQL file = Namero
+		 * querySPARQL - A string de consulta na linguagem SPARQL file = Numero
 		 * relativo ao arquivo contendo dados RDF
 		 */
 
