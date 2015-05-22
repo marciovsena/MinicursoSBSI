@@ -35,14 +35,14 @@ import com.hp.hpl.jena.vocabulary.VCARD;
 public class Tutorial06 extends Object {
 
 	// Caminho do arquivo de entrada no projeto Java corrente
-	static final String inputFileName = "br/ufg/inf/rdf/vc-db-1.rdf";
+	static final String inputFileName = "tutoriais/RDF/vc-db-1.rdf";
 
-	// Cadeia de caracteres que ser� utilizada como URI de um RECURSO
+	// Cadeia de caracteres que sera utilizada como URI de um RECURSO
 	static final String johnSmithURI = "http://somewhere/JohnSmith/";
 
 	public static void main(String args[]) {
 
-		// Cria��o de um MODELO RDF vazio
+		// Criaaao de um MODELO RDF vazio
 		Model model = ModelFactory.createDefaultModel();
 
 		// Uso da classe Java FILEMANAGER para localizar o arquivo de entrada
@@ -52,40 +52,40 @@ public class Tutorial06 extends Object {
 					+ " not found");
 		}
 
-		// Leitura do arquivo RDF de entrada na sintaxe padr�o RDF/XML
+		// Leitura do arquivo RDF de entrada na sintaxe padrao RDF/XML
 		model.read(new InputStreamReader(in), "");
 
 		// /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		// Dada a URI de um RECURSO, este pode ser recuperado de um MODELO RDF
-		// usando o m�todo getResource(String uri)
+		// usando o matodo getResource(String uri)
 		Resource vcard = model.getResource(johnSmithURI);
 
-		// Recupera o VALOR de uma PROPRIEDADE como RECURSO via m�todos
+		// Recupera o VALOR de uma PROPRIEDADE como RECURSO via matodos
 		// getRequiredProperty(Property p) e getResource()
 		Resource name = vcard.getRequiredProperty(VCARD.N).getResource();
 
-		// Recupera o VALOR de uma PROPRIEDADE como LITERAL via m�todos
+		// Recupera o VALOR de uma PROPRIEDADE como LITERAL via matodos
 		// getRequiredProperty(Property p) e getLiteral()
 		String fullName = vcard.getRequiredProperty(VCARD.FN).getString();
 
-		// O retorno dos m�todos get() � o conjunto de TRIPLAS que "casa" com a
+		// O retorno dos matodos get() a o conjunto de TRIPLAS que "casa" com a
 		// TRIPLA de entrada da consulta
 
 		// /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		// Adi��o de mais duas TRIPLAS com a mesma PROPRIEDADE e RECURSO: RDF
+		// Adicao de mais duas TRIPLAS com a mesma PROPRIEDADE e RECURSO: RDF
 		// permite isso!
-		// ATEN��O: adicionar triplas com o mesmo SUJEITO, PREDICADO e OBJETO
-		// n�o tem efeito, segundo a teoria dos GRAFOS
+		// ATENCAO: adicionar triplas com o mesmo SUJEITO, PREDICADO e OBJETO
+		// nao tem efeito, segundo a teoria dos GRAFOS
 		vcard.addProperty(VCARD.NICKNAME, "Smithy").addProperty(VCARD.NICKNAME,
 				"Adji Man");
 
-		// Configurando a sa�da da consulta
+		// Configurando a saada da consulta
 		System.out.println("The nicknames of \"" + fullName + "\" are:");
 
 		// Retorna todas as TRIPLAS que "casam" com a TRIPLA de entrada
-		// O m�todo listProperties() permite recuperar TODOS os VALORES de
+		// O metodo listProperties() permite recuperar TODOS os VALORES de
 		// PROPRIEDADES associados a um PROPRIEDADE de um RECURSO
 		StmtIterator iter = vcard.listProperties(VCARD.NICKNAME);
 		while (iter.hasNext()) {
@@ -93,6 +93,6 @@ public class Tutorial06 extends Object {
 					+ iter.nextStatement().getObject().toString());
 		}
 		
-		model.write(System.out);
+		model.write(System.out, "TURTLE");
 	}
 }
