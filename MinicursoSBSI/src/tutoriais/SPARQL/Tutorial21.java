@@ -34,12 +34,12 @@ public class Tutorial21 {
 
 	public static void main(String args[]) {
 
-		// Retorna V se existe um recurso cujo sobrenome � 'Smith'
+		// Retorna V se existe um recurso cujo sobrenome a 'Smith'
 		String query = "PREFIX vcard:      <http://www.w3.org/2001/vcard-rdf/3.0#>"
 				+ "ASK " + "{ ?s  vcard:Family  'Smith' . " + "}";
 
 		/*
-		 * querySPARQL - A string de consulta na linguagem SPARQL file = N�mero
+		 * querySPARQL - A string de consulta na linguagem SPARQL file = Numero
 		 * relativo ao arquivo contendo dados RDF
 		 */
 
@@ -51,7 +51,7 @@ public class Tutorial21 {
 		// Fonte de dados: 4 = vc-db-4.rdf
 		// Fonte de dados: 5 = vc-db-5.rdf
 		// Fonte de dados: 6 = vc-db-6.rdf
-		queryModel(query, 2);
+		queryModel(query, 1);
 	}
 
 	public static void queryModel(String querySPARQL, int file) {
@@ -59,23 +59,23 @@ public class Tutorial21 {
 		String inputFileName = null;
 
 		if (file == 1) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-1.rdf";
+			inputFileName = "tutoriais/RDF/vc-db-1.rdf";
 		} else if (file == 2) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-2.rdf";
+			inputFileName = "tutoriais/RDF/vc-db-2.rdf";
 		} else if (file == 3) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-3.rdf";
+			inputFileName = "tutoriais/RDF/vc-db-3.rdf";
 		} else if (file == 4) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-4.rdf";
+			inputFileName = "tutoriais/RDF/vc-db-4.rdf";
 		} else if (file == 5) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-5.rdf";
+			inputFileName = "tutoriais/RDF/vc-db-5.rdf";
 		} else if (file == 6) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-6.rdf";
+			inputFileName = "tutoriais/RDF/vc-db-6.rdf";
 		} else {
 			throw new IllegalArgumentException("Arquivo: " + inputFileName
-					+ " n�o encontrado!");
+					+ " nao encontrado!");
 		}
 
-		// Cria��o de um MODELO RDF vazio
+		// Criaaao de um MODELO RDF vazio
 		Model model = ModelFactory.createDefaultModel();
 
 		// Uso da classe Java FILEMANAGER para localizar o arquivo de entrada
@@ -85,19 +85,19 @@ public class Tutorial21 {
 					+ " nao encontrado");
 		}
 
-		// Leitura do arquivo RDF de entrada na sintaxe padr�o RDF/XML
+		// Leitura do arquivo RDF de entrada na sintaxe padrao RDF/XML
 		model.read(in, "");
 
-		// Cria��o de um objeto Query com a string de consulta na linguagem
+		// Criacao de um objeto Query com a string de consulta na linguagem
 		// SPARQL
 		Query query = QueryFactory.create(querySPARQL);
 
-		// Interface para a execu��o de uma �nica consulta sobre o GRAFO do
+		// Interface para a execuaao de uma unica consulta sobre o GRAFO do
 		// arquivo
 		QueryExecution qe = QueryExecutionFactory.create(query, model);
 
-		// M�todo execAsk() retorna um valor booleano indicando se o padr�o de
-		// grafo casou os dados de entrada ou n�o
+		// Metodo execAsk() retorna um valor booleano indicando se o padrao de
+		// grafo casou os dados de entrada ou nao
 		boolean result = qe.execAsk();
 		qe.close();
 

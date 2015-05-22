@@ -35,7 +35,7 @@ public class Tutorial14 {
 	public static void main(String args[]) {
 
 		// Busca por nomes e idades de recursos, ao limite de X registros com
-		// deslocamento inicial de 2 posi��es,
+		// deslocamento inicial de 2 posiaaes,
 		// ordenados descrescentemente por idade
 		String query = "PREFIX info:    <http://somewhere/peopleInfo#> "
 				+ "PREFIX vcard:   <http://www.w3.org/2001/vcard-rdf/3.0#> "
@@ -45,7 +45,7 @@ public class Tutorial14 {
 		/*
 		 * querySPARQL - A string de consulta na linguagem SPARQL usarResultSet
 		 * - Imprimir resultados da consulta na forma tabular (true) ou em
-		 * RDF/XML padr�o (false) file = N�mero relativo ao arquivo contendo
+		 * RDF/XML padrao (false) file = Numero relativo ao arquivo contendo
 		 * dados RDF
 		 */
 
@@ -60,15 +60,15 @@ public class Tutorial14 {
 		String inputFileName = null;
 
 		if (file == 2) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-2.rdf";
+			inputFileName = "tutoriais/RDF/vc-db-2.rdf";
 		} else if (file == 6) {
-			inputFileName = "br/ufg/inf/rdf/vc-db-6.rdf";
+			inputFileName = "tutoriais/RDF/vc-db-6.rdf";
 		} else {
 			throw new IllegalArgumentException("Arquivo: " + inputFileName
-					+ " n�o encontrado!");
+					+ " nao encontrado!");
 		}
 
-		// Cria��o de um MODELO RDF vazio
+		// Criacao de um MODELO RDF vazio
 		Model model = ModelFactory.createDefaultModel();
 
 		// Uso da classe Java FILEMANAGER para localizar o arquivo de entrada
@@ -78,14 +78,14 @@ public class Tutorial14 {
 					+ " nao encontrado");
 		}
 
-		// Leitura do arquivo RDF de entrada na sintaxe padr�o RDF/XML
+		// Leitura do arquivo RDF de entrada na sintaxe padrao RDF/XML
 		model.read(in, "");
 
-		// Cria��o de um objeto Query com a string de consulta na linguagem
+		// Criacao de um objeto Query com a string de consulta na linguagem
 		// SPARQL
 		Query query = QueryFactory.create(querySPARQL);
 
-		// Interface para a execu��o de uma �nica consulta sobre o GRAFO do
+		// Interface para a execucao de uma unica consulta sobre o GRAFO do
 		// arquivo
 		QueryExecution qe = QueryExecutionFactory.create(query, model);
 
@@ -98,7 +98,7 @@ public class Tutorial14 {
 			ResultSetFormatter.out(System.out, results, query);
 		} else {
 
-			// Escrita do MODELO RDF na sintaxe padr�o W3C RDF/XML
+			// Escrita do MODELO RDF na sintaxe padrao W3C RDF/XML
 			model.write(System.out);
 		}
 	}
