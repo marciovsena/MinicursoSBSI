@@ -18,10 +18,10 @@
 
 package tutoriais.RDF;
 
-/** Apresenta��o de cada pacote importado do Apache Jena
+/** Apresentacao de cada pacote importado do Apache Jena
  *  1. Interfaces Model e Resource
  *  2. Classes ModelFactory e VCARD
- *  3. Apresenta��o r�pida do padr�o VCARD (p�gina VCARD_em_RDF_XML.html) 
+ *  3. Apresentacao repida do padreo VCARD (pegina VCARD_em_RDF_XML.html) 
  */
 
 import com.hp.hpl.jena.rdf.model.Model;
@@ -30,32 +30,32 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.VCARD;
 
 /**
- * Tutorial 1 - Cria��o de um MODELO RDF simples
+ * Tutorial 1 - Criacao de um MODELO RDF simples
  */
 
 public class Tutorial01 extends Object {
 
-	// String para cria��o de URI de RECURSO
+	// String para criacao de URI de RECURSO
 	static String personURI = "http://somewhere/JohnSmith";
 
-	// String para cria��o de um VALOR DE PROPRIEDADE do tipo LITERAL
+	// String para criacao de um VALOR DE PROPRIEDADE do tipo LITERAL
 	static String fullName = "John Smith";
 
 	public static void main(String args[]) {
 
-		// Cria��o de um MODELO RDF vazio
+		// Criacao de um MODELO RDF vazio
 		Model model = ModelFactory.createDefaultModel();
 
-		// Cria��o de um RECURSO e associa��o do mesmo ao MODELO RDF
-		// rec�m-criado
+		// Criacao de um RECURSO e associacao do mesmo ao MODELO RDF
+		// recem-criado
 		Resource johnSmith = model.createResource(personURI);
 
-		// Cria��o de uma PROPRIEDADE com associa��o ao respectivo VALOR DE
+		// Criacao de uma PROPRIEDADE com associacao ao respectivo VALOR DE
 		// PROPRIEDADE (LITERAL)
-		// Associa��o dessa PROPRIEDADE ao RECURSO rec�m-criado
+		// Associacao dessa PROPRIEDADE ao RECURSO recem-criado
 		johnSmith.addProperty(VCARD.FN, fullName);
 
-		// Escrita do MODELO RDF na sintaxe padr�o W3C RDF/XML
+		// Escrita do MODELO RDF na sintaxe padrao W3C RDF/XML
 		model.write(System.out);
 	}
 }
