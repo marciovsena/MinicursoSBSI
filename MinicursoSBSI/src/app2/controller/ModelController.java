@@ -4,7 +4,7 @@ import java.net.MalformedURLException;
 
 import org.mindswap.pellet.jena.PelletReasonerFactory;
 
-import app1.database.PersistenceTDB;
+import app2.database.PersistenceTDB;
 
 import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Model;
@@ -17,9 +17,8 @@ import com.hp.hpl.jena.util.FileManager;
 public class ModelController {
 	
 	static Model model;
-	static String FOAF = "ontologies/foaf.owl";
-	static String ACM = "ontologies/acm.owl";
-
+	static String FOAF = "src/ontologies/foaf.owl";
+	static String ACM = "src/ontologies/acm.owl";
 
 	public static void inicializaModelo() {
 		model = ModelFactory.createDefaultModel();
@@ -28,16 +27,13 @@ public class ModelController {
 		ResourceController r = new ResourceController(model);
 		model = r.getModel();
 	}
-	
-	
+
 	public static void imprimirModeloTURTLE() {
 		// Escrita do MODELO RDF na sintaxe TURTLE
 		System.out.println();
 		model.write(System.out, "TURTLE");
-
 	}
-	
-	
+
 	public static InfModel runRDFSReasoner(Model model) {
 		// Máquina Inferência utilizando o RDFSReasoner
 		
@@ -106,7 +102,7 @@ public class ModelController {
 		//Sem inferência
 		System.out.println("");
   		System.out.println("\n\n======== Consultas sobre o modelo sem inferências ========\n");
-		QueryController.getAreas(model.add(FileManager.get().loadModel(ACM)));
+		QueryController.getAreas(model);
 
 		//Com inferência RDFSResoaner
 		System.out.println("\n\n======== Consultas sobre o modelo com inferências RDFS ========\n");
@@ -153,7 +149,7 @@ public class ModelController {
 		QueryController.sugerirPessoasArea(runRDFSReasoner(model));
 
 		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
+		System.out.println("\n\n======== Consultas sobre o modelo com inferência Pellet ========\n");
 		//QueryController.getDocument(runOWLMicroReasoner(model));
 		try {
 			QueryController.sugerirPessoasArea(runPelletReasoner(model));
@@ -173,7 +169,7 @@ public class ModelController {
 		QueryController.sugerirPessoasSubarea(runRDFSReasoner(model));
 
 		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
+		System.out.println("\n\n======== Consultas sobre o modelo com inferência Pellet ========\n");
 		//QueryController.getDocument(runOWLMicroReasoner(model));
 		try {
 			QueryController.sugerirPessoasSubarea(runPelletReasoner(model));
@@ -193,7 +189,7 @@ public class ModelController {
 		QueryController.sugerirPessoasAreaEspecifica(runRDFSReasoner(model));
 
 		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
+		System.out.println("\n\n======== Consultas sobre o modelo com inferência Pellet ========\n");
 		//QueryController.getDocument(runOWLMicroReasoner(model));
 		try {
 			QueryController.sugerirPessoasAreaEspecifica(runPelletReasoner(model));
@@ -205,15 +201,14 @@ public class ModelController {
 	public static void persistirDadosRepositorioTDB() {
 		// Persistência do MODELO RDF em memória para o BD
 		PersistenceTDB tdb = new PersistenceTDB();
-		tdb.update(model);
+		tdb.updateModel(model);
 		System.out.println();
 	}
 	
 	public static void deletarDadosRepositorioTDB() {
 		// Persistência do MODELO RDF em memória para o BD
 		PersistenceTDB tdb = new PersistenceTDB();
-		tdb.removerDados(model);
+		tdb.removeModel(model);
 		System.out.println();
 	}
-		
 }
