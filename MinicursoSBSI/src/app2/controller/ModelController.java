@@ -70,6 +70,7 @@ public class ModelController {
 
 		// create Pellet reasoner
 		Reasoner r = PelletReasonerFactory.theInstance().create();
+		r = r.bindSchema(schema);
 
 		// create an inferencing model using the raw model
 		InfModel infModel = ModelFactory.createInfModel(r, schema, model);
@@ -88,7 +89,7 @@ public class ModelController {
 		QueryController.getPerson(runRDFSReasoner(model));
 		
 		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
+		System.out.println("\n\n======== Consultas sobre o modelo com inferências Pellet ========\n");
 		//QueryController.getPerson(runOWLMicroReasoner(model));
 		try {
 			QueryController.getPerson(runPelletReasoner(model));
@@ -109,8 +110,8 @@ public class ModelController {
 		QueryController.getAreas(runRDFSReasoner(model));
 		
 		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
-		//QueryController.getDocument(runOWLMicroReasoner(model));
+		System.out.println("\n\n======== Consultas sobre o modelo com inferências Pellet ========\n");
+		//QueryController.getAreas(runOWLMicroReasoner(model));
 		try {
 			QueryController.getAreas(runPelletReasoner(model));
 		} catch (MalformedURLException e) {
@@ -129,8 +130,8 @@ public class ModelController {
 		QueryController.getSubAreas(runRDFSReasoner(model));
 
 		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
-		//QueryController.getDocument(runOWLMicroReasoner(model));
+		System.out.println("\n\n======== Consultas sobre o modelo com inferências Pellet ========\n");
+//		QueryController.getSubAreas(runOWLMicroReasoner(model));
 		try {
 			QueryController.getSubAreas(runPelletReasoner(model));
 		} catch (MalformedURLException e) {
@@ -150,7 +151,7 @@ public class ModelController {
 
 		//Com inferência OWLMicroReasoner
 		System.out.println("\n\n======== Consultas sobre o modelo com inferência Pellet ========\n");
-		//QueryController.getDocument(runOWLMicroReasoner(model));
+		//QueryController.sugerirPessoasArea(runOWLMicroReasoner(model));
 		try {
 			QueryController.sugerirPessoasArea(runPelletReasoner(model));
 		} catch (MalformedURLException e) {

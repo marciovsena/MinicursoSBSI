@@ -17,8 +17,8 @@ import com.hp.hpl.jena.util.FileManager;
 public class ModelController {
 	
 	static Model model;
-	static String FOAF = "src/ontologies/foaf.owl";
-	static String ACM = "src/ontologies/acm.owl";
+	static String FOAF = "ontologies/foaf.owl";
+	static String ACM = "ontologies/acm.owl";
 
 
 	public static void inicializaModelo() {
@@ -93,7 +93,7 @@ public class ModelController {
 		QueryController.getPerson(runRDFSReasoner(model));
 		
 		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
+		System.out.println("\n\n======== Consultas sobre o modelo com inferências Pellet ========\n");
 		//QueryController.getPerson(runOWLMicroReasoner(model));
 		try {
 			QueryController.getPerson(runPelletReasoner(model));
@@ -114,7 +114,7 @@ public class ModelController {
 		QueryController.getDocument(runRDFSReasoner(model));
 		
 		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
+		System.out.println("\n\n======== Consultas sobre o modelo com inferências Pellet ========\n");
 		//QueryController.getDocument(runOWLMicroReasoner(model));
 		try {
 			QueryController.getDocument(runPelletReasoner(model));
@@ -134,7 +134,7 @@ public class ModelController {
 		QueryController.getAutor(runRDFSReasoner(model));
 		
 		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
+		System.out.println("\n\n======== Consultas sobre o modelo com inferências Pellet ========\n");
 		//QueryController.getAutor(runOWLMicroReasoner(model));
 		try {
 			QueryController.getAutor(runPelletReasoner(model));
@@ -154,7 +154,7 @@ public class ModelController {
 		QueryController.getRevisorArea(runRDFSReasoner(model));
 		
 		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
+		System.out.println("\n\n======== Consultas sobre o modelo com inferências Pellet ========\n");
 		//QueryController.getRevisorArea(runOWLMicroReasoner(model));
 		try {
 			QueryController.getRevisorArea(runPelletReasoner(model));
@@ -174,7 +174,7 @@ public class ModelController {
 		QueryController.getArtigoByArea(runRDFSReasoner(model));
 		
 		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
+		System.out.println("\n\n======== Consultas sobre o modelo com inferências Pellet ========\n");
 		//QueryController.getArtigoByArea(runOWLMicroReasoner(model));
 		try {
 			QueryController.getArtigoByArea(runPelletReasoner(model));
@@ -194,7 +194,7 @@ public class ModelController {
 		QueryController.getSubArea(runRDFSReasoner(model));
 		
 		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
+		System.out.println("\n\n======== Consultas sobre o modelo com inferências Pellet ========\n");
 		//QueryController.getSubArea(runOWLMicroReasoner(model));
 		try {
 			QueryController.getSubArea(runPelletReasoner(model));
@@ -216,7 +216,7 @@ public class ModelController {
 		QueryController.sugerirRevisorSubArea(runRDFSReasoner(model));
 		
 		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
+		System.out.println("\n\n======== Consultas sobre o modelo com inferências Pellet ========\n");
 		//QueryController.sugerirRevisorArea(runOWLMicroReasoner(model));
 		//QueryController.sugerirRevisorSubArea(runOWLMicroReasoner(model));
 		try {
@@ -240,7 +240,7 @@ public class ModelController {
 		QueryController.sugerirRevisorArtigo1bySubArea(runRDFSReasoner(model));
 		
 		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências OWL ========\n");
+		System.out.println("\n\n======== Consultas sobre o modelo com inferências Pellet ========\n");
 		//QueryController.sugerirRevisorArtigo1byArea(runOWLMicroReasoner(model));
 		//QueryController.sugerirRevisorArtigo1bySubArea(runOWLMicroReasoner(model));
 		try {

@@ -45,14 +45,13 @@ public class QueryController {
 	public static void getSubAreas(Model model) {
 		String query;
 		query = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
-				+ "SELECT DISTINCT ?subareaLabel ?areaLabel "
+				+ "SELECT DISTINCT ?subarea "
 				+ "WHERE "
 				+ "{"
-				+ "?uri rdfs:subClassOf ?area . "
-				+ "?uri rdfs:label ?subareaLabel . "
-				+ "?area rdfs:label ?areaLabel "
-				+ "}";
-		//order by areas
+				+ "?uri rdfs:subClassOf ?a . "
+				+ "?uri rdfs:label ?subarea . "
+				+ "}"
+				+ "ORDER BY ?subarea";
 		System.out.println("Subareas: ");
 		queryModel(query, model);
 		System.out.println();
@@ -104,14 +103,18 @@ public class QueryController {
 	public static void sugerirPessoasAreaEspecifica(Model model) {
 		String query;
 		query = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
+				+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
 				+ "PREFIX acm: <http://linkserver.icmc.usp.br/ckonto/acm#>"
-				+ "SELECT DISTINCT ?pessoa "
+				+ "SELECT ?pessoa "
 				+ "WHERE "
 				+ "{"
-				+ "?pessoa acm:hasKnowledgeOf acm:B_1_4_0_Languages_And_Compilers . "
+				+ "acm:E_2_2_Object_Representation rdf:type ?areasRelacionadas . "
+				+ "?pessoa acm:hasKnowledgeOf ?areasRelacionadas . "
 				+ "}";
+
+//		query = "select ?s ?p ?o WHERE {?s ?p ?o}";
 		//order by areas
-		System.out.println("Recomendação de pessoas por área específica: B_1_4_0_Languages_And_Compilers ");
+		System.out.println("Recomendação de pessoas por área específica: E_2_2_Object_Representation ");
 		queryModel(query, model);
 		System.out.println();
 	}

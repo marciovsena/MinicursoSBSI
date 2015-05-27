@@ -88,7 +88,7 @@ public class ResourceController {
 		Resource revisor3 = model.createResource(FOAF.getURI()+"/BrunoSilvestre" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Bruno") )
-				.addProperty(FOAF.lastName, model.createTypedLiteral("Silves") )
+				.addProperty(FOAF.lastName, model.createTypedLiteral("Silvestre") )
 				.addProperty(ACM.hasKnowledgeOf, area10 );
 		
 		Resource revisor4 = model.createResource(FOAF.getURI()+"/WilliamMacedo" )
@@ -114,34 +114,6 @@ public class ResourceController {
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Marcio") )
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Sena") )
 				.addProperty(ACM.hasKnowledgeOf, area1 );
-		
-		
-		// Criação de um RECURSO com a ontolgia Foaf para Artigo (Document)
-		// Adição das PROPRIEDADES ao RECURSO
-		Resource artigo1 = model.createResource(FOAF.getURI()+"/LinguagemDeSoftware" )
-				.addProperty(RDF.type, FOAF.Document ) 
-				.addProperty(FOAF.title, model.createTypedLiteral("Linguagem de Software para Compiladores") )
-				.addProperty(FOAF.made, autor1 )
-				.addProperty(FOAF.primaryTopic, area3 );
-		
-		Resource artigo2 = model.createResource(FOAF.getURI()+"/RaspberryPy" )
-				.addProperty(RDF.type, FOAF.Document ) 
-				.addProperty(FOAF.title, model.createTypedLiteral("Os principais componentes do RaspberryPy") )
-				.addProperty(FOAF.made, autor2 )
-				.addProperty(FOAF.primaryTopic, area7 );
-		
-		Resource artigo3 = model.createResource(FOAF.getURI()+"/PerformanceSistemasPy" )
-				.addProperty(RDF.type, FOAF.Document ) 
-				.addProperty(FOAF.title, model.createTypedLiteral("Performance de Sistemas em Python") )
-				.addProperty(FOAF.made, autor3 )
-				.addProperty(FOAF.primaryTopic, area3 );
-		
-		Resource artigo4 = model.createResource(FOAF.getURI()+"/RepresentacaoDeObjetos" )
-				.addProperty(RDF.type, FOAF.Document ) 
-				.addProperty(FOAF.title, model.createTypedLiteral("Representação de Objetos em Python") )
-				.addProperty(FOAF.made, autor4 )
-				.addProperty(FOAF.primaryTopic, area4 );
-
 	}
 	
 	public Model getModel(){

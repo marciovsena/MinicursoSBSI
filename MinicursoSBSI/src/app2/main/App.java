@@ -18,7 +18,7 @@ public class App {
 		System.out.println( "3 - Listar Subareas" );
         System.out.println( "4 - Sugerir Pessoas em relação a áreas de conhecimento" );
         System.out.println( "5 - Sugerir Pessoas em relação as subareas" );
-        System.out.println( "6 - Sugerir Pessoas em relação a área 'B_1_4_0_Languages_And_Compilers'" );
+        System.out.println( "6 - Sugerir Pessoas em relação a área 'E_2_2_Object_Representation'" );
         System.out.println( "7 - Persistir no Repositório TDB" );
         System.out.println( "8 - Imprimir Serialização TURTLE" );
         System.out.println( "9 - Deletar Registros do TDB" );
