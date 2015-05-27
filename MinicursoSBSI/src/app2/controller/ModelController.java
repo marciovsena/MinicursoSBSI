@@ -126,14 +126,14 @@ public class ModelController {
 	public static void persistirDadosRepositorioTDB() {
 		// Persistência do MODELO RDF em memória para o BD
 		PersistenceTDB tdb = new PersistenceTDB();
-		tdb.update(model);
+		tdb.updateModel(model);
 		System.out.println();
 	}
 	
 	public static void deletarDadosRepositorioTDB() {
 		// Persistência do MODELO RDF em memória para o BD
 		PersistenceTDB tdb = new PersistenceTDB();
-		tdb.removerDados(model);
+		tdb.removeModel(model);
 		System.out.println();
 	}
 		
