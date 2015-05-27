@@ -31,4 +31,4 @@ pesquisador especialista na área de conhecimento de cada artigo
  * **Título:** Socialização de pessoas com interesses comuns 
  * **Problema:** uma pessoa deseja se socializar com outras pessoas que possuam interessem em comum, por exemplo, que têm interesse nas mesmas áreas de conhecimento
  * **Solução:** sabendo-se a(s) área(s) de conhecimento na(s) qual(is) a pessoa tem interesse, deve-se localizar outras pessoas que possuam as mesmas áreas de interesse, ou interesse em subáreas dessas. Essas pessoas podem ser socializadas, por exemplo, por meio da criação de grupos, cujo tema/título representa a área de conhecimento em questão.
- * **Ontologias:** FOAF, Relationship e ACM CS
+ * **Ontologias:** FOAF e ACM CS
