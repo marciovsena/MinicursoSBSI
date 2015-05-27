@@ -69,17 +69,13 @@ public class ModelController {
 	
 	public static InfModel runPelletReasoner(Model model) throws MalformedURLException{
     	
-		Model schema = FileManager.get().loadModel(FOAF);
-		Model schema2 = FileManager.get().loadModel(ACM);
-		schema.add(schema2);
+		Reasoner reasoner = PelletReasonerFactory.theInstance().create();
 
-		// create Pellet reasoner
-		Reasoner r = PelletReasonerFactory.theInstance().create();
+		InfModel infModel = ModelFactory.createInfModel(reasoner, model);
+		infModel.read(FOAF);
+		infModel.read(ACM);
 
-		// create an inferencing model using the raw model
-		InfModel infModel = ModelFactory.createInfModel(r, schema, model);
-        
-        return infModel;
+		return infModel;
     }
 	
 	public static void listarPessoas() {
