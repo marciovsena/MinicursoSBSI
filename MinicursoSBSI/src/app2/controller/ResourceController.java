@@ -39,8 +39,8 @@ public class ResourceController {
 		Resource area7 = model.createResource(ACM.getURI()+"D_2_4_8_Validation")
 				.addProperty(RDF.type, ACM.D_2_4_8_Validation);
 		
-		Resource area8 = model.createResource(ACM.getURI()+"D_2_4_Software_Program_Verification")
-				.addProperty(RDF.type, ACM.D_2_4_Software_Program_Verification);
+		Resource area8 = model.createResource(ACM.getURI()+"D_2_3_0_Object_Oriented_Programming")
+				.addProperty(RDF.type, ACM.D_2_3_0_Object_Oriented_Programming);
 		
 		Resource area9 = model.createResource(ACM.getURI()+"E_2_2_Object_Representation")
 				.addProperty(RDF.type, ACM.E_2_2_Object_Representation);
@@ -55,15 +55,15 @@ public class ResourceController {
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Weslley") )
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Araujo") );
 		
-		Resource autor2 = model.createResource(FOAF.getURI()+"/LizandraOttmann" )
+		Resource autor2 = model.createResource(FOAF.getURI()+"/MarceloQuinta" )
 				.addProperty(RDF.type, FOAF.Person )
-				.addProperty(FOAF.firstName, model.createTypedLiteral("Lizandra") )
-				.addProperty(FOAF.lastName, model.createTypedLiteral("Ottmann") );
+				.addProperty(FOAF.firstName, model.createTypedLiteral("Marcelo") )
+				.addProperty(FOAF.lastName, model.createTypedLiteral("Quinta") );
 		
-		Resource autor3 = model.createResource(FOAF.getURI()+"/AndressaVuicik" )
+		Resource autor3 = model.createResource(FOAF.getURI()+"/DanielCoelho" )
 				.addProperty(RDF.type, FOAF.Person )
-				.addProperty(FOAF.firstName, model.createTypedLiteral("Andressa") )
-				.addProperty(FOAF.lastName, model.createTypedLiteral("Vuicik") );
+				.addProperty(FOAF.firstName, model.createTypedLiteral("Daniel") )
+				.addProperty(FOAF.lastName, model.createTypedLiteral("Coelho") );
 		
 		Resource autor4 = model.createResource(FOAF.getURI()+"/JoseFreitas" )
 				.addProperty(RDF.type, FOAF.Person )
@@ -78,7 +78,7 @@ public class ResourceController {
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Renato") )
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Bulcao") )
 				.addProperty(ACM.hasKnowledgeOf, area1 );
-		
+
 		Resource revisor2 = model.createResource(FOAF.getURI()+"/ErnestoVeiga" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Ernesto") )
@@ -88,54 +88,32 @@ public class ResourceController {
 		Resource revisor3 = model.createResource(FOAF.getURI()+"/BrunoSilvestre" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Bruno") )
-				.addProperty(FOAF.lastName, model.createTypedLiteral("Silves") )
-				.addProperty(ACM.hasKnowledgeOf, area3 );
+				.addProperty(FOAF.lastName, model.createTypedLiteral("Silvestre") )
+				.addProperty(ACM.hasKnowledgeOf, area10 );
 		
 		Resource revisor4 = model.createResource(FOAF.getURI()+"/WilliamMacedo" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("William") )
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Macedo") )
-				.addProperty(ACM.hasKnowledgeOf, area4 );
+				.addProperty(ACM.hasKnowledgeOf, area9 );
 		
 		Resource revisor5 = model.createResource(FOAF.getURI()+"/AndersonSoares" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Anderson") )
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Soares") )
-				.addProperty(ACM.hasKnowledgeOf, area5 );
+				.addProperty(ACM.hasKnowledgeOf, area6 );
 		
 		Resource revisor6 = model.createResource(FOAF.getURI()+"/EdmundoSpoto" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Edmundo") )
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Spoto") )
 				.addProperty(ACM.hasKnowledgeOf, area7 );
-		
-		
-		// Criação de um RECURSO com a ontolgia Foaf para Artigo (Document)
-		// Adição das PROPRIEDADES ao RECURSO
-		Resource artigo1 = model.createResource(FOAF.getURI()+"/LinguagemDeSoftware" )
-				.addProperty(RDF.type, FOAF.Document ) 
-				.addProperty(FOAF.title, model.createTypedLiteral("Linguagem de Software para Compiladores") )
-				.addProperty(FOAF.made, autor1 )
-				.addProperty(FOAF.primaryTopic, area3 );
-		
-		Resource artigo2 = model.createResource(FOAF.getURI()+"/RaspberryPy" )
-				.addProperty(RDF.type, FOAF.Document ) 
-				.addProperty(FOAF.title, model.createTypedLiteral("Os principais componentes do RaspberryPy") )
-				.addProperty(FOAF.made, autor2 )
-				.addProperty(FOAF.primaryTopic, area7 );
-		
-		Resource artigo3 = model.createResource(FOAF.getURI()+"/PerformanceSistemasPy" )
-				.addProperty(RDF.type, FOAF.Document ) 
-				.addProperty(FOAF.title, model.createTypedLiteral("Performance de Sistemas em Python") )
-				.addProperty(FOAF.made, autor3 )
-				.addProperty(FOAF.primaryTopic, area3 );
-		
-		Resource artigo4 = model.createResource(FOAF.getURI()+"/RepresentacaoDeObjetos" )
-				.addProperty(RDF.type, FOAF.Document ) 
-				.addProperty(FOAF.title, model.createTypedLiteral("Representação de Objetos em Python") )
-				.addProperty(FOAF.made, autor4 )
-				.addProperty(FOAF.primaryTopic, area4 );
 
+		Resource revisor7 = model.createResource(FOAF.getURI()+"/MarcioSena" )
+				.addProperty(RDF.type, FOAF.Person )
+				.addProperty(FOAF.firstName, model.createTypedLiteral("Marcio") )
+				.addProperty(FOAF.lastName, model.createTypedLiteral("Sena") )
+				.addProperty(ACM.hasKnowledgeOf, area1 );
 	}
 	
 	public Model getModel(){
