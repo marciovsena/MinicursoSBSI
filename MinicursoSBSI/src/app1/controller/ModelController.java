@@ -17,8 +17,8 @@ import com.hp.hpl.jena.util.FileManager;
 public class ModelController {
 	
 	static Model model;
-	static String FOAF = "ontologies/foaf.owl";
-	static String ACM = "ontologies/acm.owl";
+	static String FOAF = "src/ontologies/foaf.owl";
+	static String ACM = "src/ontologies/acm.owl";
 
 
 	public static void inicializaModelo() {
