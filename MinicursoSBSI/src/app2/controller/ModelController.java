@@ -2,7 +2,9 @@ package app2.controller;
 
 import java.net.MalformedURLException;
 
+import com.hp.hpl.jena.ontology.OntModel;
 import org.mindswap.pellet.jena.PelletReasonerFactory;
+import org.mindswap.pellet.jena.PelletReasoner;
 
 import app2.database.PersistenceTDB;
 
@@ -12,13 +14,15 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.reasoner.Reasoner;
 import com.hp.hpl.jena.reasoner.ReasonerRegistry;
 import com.hp.hpl.jena.util.FileManager;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+import uk.ac.manchester.cs.owl.owlapi.OWLOntologyManagerImpl;
 
 
 public class ModelController {
 	
 	static Model model;
-	static String FOAF = "src/ontologies/foaf.owl";
-	static String ACM = "src/ontologies/acm.owl";
+	static String FOAF = "ontologies/foaf.owl";
+	static String ACM = "ontologies/acm.owl";
 
 	public static void inicializaModelo() {
 		model = ModelFactory.createDefaultModel();
@@ -63,19 +67,13 @@ public class ModelController {
 	}
 	
 	public static InfModel runPelletReasoner(Model model) throws MalformedURLException{
-    	
-		Model schema = FileManager.get().loadModel(FOAF);
-		Model schema2 = FileManager.get().loadModel(ACM);
-		schema.add(schema2);
+		Reasoner reasoner = PelletReasonerFactory.theInstance().create();
 
-		// create Pellet reasoner
-		Reasoner r = PelletReasonerFactory.theInstance().create();
-		r = r.bindSchema(schema);
+		InfModel infModel = ModelFactory.createInfModel(reasoner, model);
+		infModel.read(FOAF);
+		infModel.read(ACM);
 
-		// create an inferencing model using the raw model
-		InfModel infModel = ModelFactory.createInfModel(r, schema, model);
-        
-        return infModel;
+		return infModel;
     }
 	
 	public static void listarPessoas() {
