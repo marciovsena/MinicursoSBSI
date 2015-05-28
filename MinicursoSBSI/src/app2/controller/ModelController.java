@@ -95,18 +95,24 @@ public class ModelController {
 		return infModel;
 	}
 	
+	/**
+	 * Realiza 3 consultas no metodo getPerson com modelo:
+	 * - Sem inferencia
+	 * - com inferencia RDFSResoaner
+	 * - com inferencia Pellet
+	 */
 	public static void listPerson() {
-		//Sem inferência
+		//Sem inferencia
 		System.out.println("");
-  		System.out.println("\n\n======== Consultas sobre o modelo sem inferências ========\n");
+  		System.out.println("\n\n======== Consultas sobre o modelo sem inferencias ========\n");
 		QueryController.getPerson(model);
 
-		//Com inferência RDFSResoaner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências RDFS ========\n");
+		//Com inferencia RDFSResoaner
+		System.out.println("\n\n======== Consultas sobre o modelo com inferencias RDFS ========\n");
 		QueryController.getPerson(runRDFSReasoner(model));
 		
-		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências Pellet ========\n");
+		//Com inferencia OWLMicroReasoner
+		System.out.println("\n\n======== Consultas sobre o modelo com inferencias Pellet ========\n");
 		//QueryController.getPerson(runOWLMicroReasoner(model));
 		try {
 			QueryController.getPerson(runPelletReasoner(model));
@@ -116,101 +122,131 @@ public class ModelController {
 		
 	}
 	
+	/**
+	 * Realiza 3 consultas no metodo getArea com modelo:
+	 * - Sem inferencia
+	 * - com inferencia RDFSResoaner
+	 * - com inferencia Pellet
+	 */
 	public static void listArea() {
-		//Sem inferência
+		//Sem inferencia
 		System.out.println("");
-  		System.out.println("\n\n======== Consultas sobre o modelo sem inferências ========\n");
-		QueryController.getAreas(model);
+  		System.out.println("\n\n======== Consultas sobre o modelo sem inferencias ========\n");
+		QueryController.getArea(model);
 
-		//Com inferência RDFSResoaner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências RDFS ========\n");
-		QueryController.getAreas(runRDFSReasoner(model));
+		//Com inferencia RDFSResoaner
+		System.out.println("\n\n======== Consultas sobre o modelo com inferencias RDFS ========\n");
+		QueryController.getArea(runRDFSReasoner(model));
 		
-		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências Pellet ========\n");
+		//Com inferencia OWLMicroReasoner
+		System.out.println("\n\n======== Consultas sobre o modelo com inferencias Pellet ========\n");
 		//QueryController.getAreas(runOWLMicroReasoner(model));
 		try {
-			QueryController.getAreas(runPelletReasoner(model));
+			QueryController.getArea(runPelletReasoner(model));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Realiza 3 consultas no metodo getSubarea com modelo:
+	 * - Sem inferencia
+	 * - com inferencia RDFSResoaner
+	 * - com inferencia Pellet
+	 */
 	public static void listSubarea() {
-		//Sem inferência
+		//Sem inferencia
 		System.out.println("");
-		System.out.println("\n\n======== Consultas sobre o modelo sem inferências ========\n");
-		QueryController.getSubAreas(model);
+		System.out.println("\n\n======== Consultas sobre o modelo sem inferencias ========\n");
+		QueryController.getSubarea(model);
 
-		//Com inferência RDFSResoaner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências RDFS ========\n");
-		QueryController.getSubAreas(runRDFSReasoner(model));
+		//Com inferencia RDFSResoaner
+		System.out.println("\n\n======== Consultas sobre o modelo com inferencias RDFS ========\n");
+		QueryController.getSubarea(runRDFSReasoner(model));
 
-		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências Pellet ========\n");
+		//Com inferencia OWLMicroReasoner
+		System.out.println("\n\n======== Consultas sobre o modelo com inferencias Pellet ========\n");
 //		QueryController.getSubAreas(runOWLMicroReasoner(model));
 		try {
-			QueryController.getSubAreas(runPelletReasoner(model));
+			QueryController.getSubarea(runPelletReasoner(model));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Realiza 3 consultas no metodo suggestPeopleArea com modelo:
+	 * - Sem inferencia
+	 * - com inferencia RDFSResoaner
+	 * - com inferencia Pellet
+	 */
 	public static void suggestPersonAllArea() {
-		//Sem inferência
+		//Sem inferencia
 		System.out.println("");
-		System.out.println("\n\n======== Consultas sobre o modelo sem inferências ========\n");
-		QueryController.sugerirPessoasArea(model);
+		System.out.println("\n\n======== Consultas sobre o modelo sem inferencias ========\n");
+		QueryController.suggestPeopleArea(model);
 
-		//Com inferência RDFSResoaner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências RDFS ========\n");
-		QueryController.sugerirPessoasArea(runRDFSReasoner(model));
+		//Com inferencia RDFSResoaner
+		System.out.println("\n\n======== Consultas sobre o modelo com inferencias RDFS ========\n");
+		QueryController.suggestPeopleArea(runRDFSReasoner(model));
 
-		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferência Pellet ========\n");
+		//Com inferencia OWLMicroReasoner
+		System.out.println("\n\n======== Consultas sobre o modelo com inferencia Pellet ========\n");
 		//QueryController.sugerirPessoasArea(runOWLMicroReasoner(model));
 		try {
-			QueryController.sugerirPessoasArea(runPelletReasoner(model));
+			QueryController.suggestPeopleArea(runPelletReasoner(model));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Realiza 3 consultas no metodo suggestPeopleSubarea com modelo:
+	 * - Sem inferencia
+	 * - com inferencia RDFSResoaner
+	 * - com inferencia Pellet
+	 */
 	public static void suggestPersonAllSubareas() {
-		//Sem inferência
+		//Sem inferencia
 		System.out.println("");
-		System.out.println("\n\n======== Consultas sobre o modelo sem inferências ========\n");
-		QueryController.sugerirPessoasSubarea(model);
+		System.out.println("\n\n======== Consultas sobre o modelo sem inferencias ========\n");
+		QueryController.suggestPeopleSubarea(model);
 
-		//Com inferência RDFSResoaner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências RDFS ========\n");
-		QueryController.sugerirPessoasSubarea(runRDFSReasoner(model));
+		//Com inferencia RDFSResoaner
+		System.out.println("\n\n======== Consultas sobre o modelo com inferencias RDFS ========\n");
+		QueryController.suggestPeopleSubarea(runRDFSReasoner(model));
 
-		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferência Pellet ========\n");
+		//Com inferencia OWLMicroReasoner
+		System.out.println("\n\n======== Consultas sobre o modelo com inferencia Pellet ========\n");
 		//QueryController.getDocument(runOWLMicroReasoner(model));
 		try {
-			QueryController.sugerirPessoasSubarea(runPelletReasoner(model));
+			QueryController.suggestPeopleSubarea(runPelletReasoner(model));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Realiza 3 consultas no metodo suggestPeopleSpecificArea com modelo:
+	 * - Sem inferencia
+	 * - com inferencia RDFSResoaner
+	 * - com inferencia Pellet
+	 */
 	public static void suggestPersonAreaSpecif() {
-		//Sem inferência
+		//Sem inferencia
 		System.out.println("");
-		System.out.println("\n\n======== Consultas sobre o modelo sem inferências ========\n");
-		QueryController.sugerirPessoasAreaEspecifica(model);
+		System.out.println("\n\n======== Consultas sobre o modelo sem inferencias ========\n");
+		QueryController.suggestPeopleSpecificArea(model);
 
-		//Com inferência RDFSResoaner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferências RDFS ========\n");
-		QueryController.sugerirPessoasAreaEspecifica(runRDFSReasoner(model));
+		//Com inferencia RDFSResoaner
+		System.out.println("\n\n======== Consultas sobre o modelo com inferencias RDFS ========\n");
+		QueryController.suggestPeopleSpecificArea(runRDFSReasoner(model));
 
-		//Com inferência OWLMicroReasoner
-		System.out.println("\n\n======== Consultas sobre o modelo com inferência Pellet ========\n");
+		//Com inferencia OWLMicroReasoner
+		System.out.println("\n\n======== Consultas sobre o modelo com inferencia Pellet ========\n");
 		//QueryController.getDocument(runOWLMicroReasoner(model));
 		try {
-			QueryController.sugerirPessoasAreaEspecifica(runPelletReasoner(model));
+			QueryController.suggestPeopleSpecificArea(runPelletReasoner(model));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
