@@ -24,6 +24,10 @@ public class PersistenceTDB {
 		dataset = TDBFactory.createDataset(diretorio);
 	}
 
+	/**
+	 * Recebe modelo e persite utilizando TDB
+	 * @param model modelo RDF
+	 */
 	public void updateModel(Model model) {
 		try {
 			dataset.begin(ReadWrite.WRITE);
@@ -36,6 +40,10 @@ public class PersistenceTDB {
 		}
 	}
 
+	/**
+	 * Recebe query e realiza a consulta no modelo armazenado em TDB
+	 * @param query string SPARQL
+	 */
 	public void queryModel(String query) {
 		dataset.begin(ReadWrite.READ);
 		try {
@@ -50,7 +58,11 @@ public class PersistenceTDB {
 			dataset.end();
 		}
 	}
-	
+
+	/**
+	 * Recebe modelo e remove-o do TDB
+	 * @param model modelo RDF
+	 */
 	public void removeModel(Model model) {
 		try {
 			dataset.begin(ReadWrite.WRITE);
@@ -63,7 +75,11 @@ public class PersistenceTDB {
 		}
 	}
 
-	public void fecharConexao() {
+	/**
+	 * Recebe modelo e remove-o do TDB
+	 * @param model modelo RDF
+	 */
+	public void closeConection() {
 		dataset.close();
 	}	
 
