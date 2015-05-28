@@ -18,7 +18,6 @@
 * Ontologias - *estão incluídas no projeto*
  *  **[FOAF](http://xmlns.com/foaf/spec/):** - Friend of a Friend
  *  **ACM CS** 
- *  **[Relationship](http://vocab.org/relationship/.html)**
 
 #### Aplicações e requisitos:
 * src/app1
