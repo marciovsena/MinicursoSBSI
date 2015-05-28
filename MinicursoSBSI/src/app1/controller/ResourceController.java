@@ -74,37 +74,37 @@ public class ResourceController {
 		
 		// Criação de um RECURSO com a ontolgia Foaf para Revisor (Person)
 		// Adição das PROPRIEDADES ao RECURSO
-		Resource revisor1 = model.createResource(FOAF.getURI()+"/RenatoBulcao" )
+		Resource reviewers1 = model.createResource(FOAF.getURI()+"/RenatoBulcao" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Renato") )
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Bulcao") )
 				.addProperty(ACM.hasKnowledgeOf, area1 );
 		
-		Resource revisor2 = model.createResource(FOAF.getURI()+"/ErnestoVeiga" )
+		Resource reviewers2 = model.createResource(FOAF.getURI()+"/ErnestoVeiga" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Ernesto") )
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Veiga") )
 				.addProperty(ACM.hasKnowledgeOf, area2 );
 		
-		Resource revisor3 = model.createResource(FOAF.getURI()+"/BrunoSilvestre" )
+		Resource reviewers3 = model.createResource(FOAF.getURI()+"/BrunoSilvestre" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Bruno") )
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Silves") )
 				.addProperty(ACM.hasKnowledgeOf, area3 );
 		
-		Resource revisor4 = model.createResource(FOAF.getURI()+"/WilliamMacedo" )
+		Resource reviewers4 = model.createResource(FOAF.getURI()+"/WilliamMacedo" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("William") )
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Macedo") )
 				.addProperty(ACM.hasKnowledgeOf, area4 );
 		
-		Resource revisor5 = model.createResource(FOAF.getURI()+"/AndersonSoares" )
+		Resource reviewers5 = model.createResource(FOAF.getURI()+"/AndersonSoares" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Anderson") )
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Soares") )
 				.addProperty(ACM.hasKnowledgeOf, area5 );
 		
-		Resource revisor6 = model.createResource(FOAF.getURI()+"/EdmundoSpoto" )
+		Resource reviewers6 = model.createResource(FOAF.getURI()+"/EdmundoSpoto" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Edmundo") )
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Spoto") )
