@@ -51,22 +51,22 @@ public class ResourceController {
 		
 		// Criação de um RECURSO com a ontolgia Foaf para Autor (Person)
 		// Adição das PROPRIEDADES ao RECURSO
-		Resource autor1 = model.createResource(FOAF.getURI()+"/WeslleyAraujo" )
+		Resource actor1 = model.createResource(FOAF.getURI()+"/WeslleyAraujo" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Weslley") )
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Araujo") );
 		
-		Resource autor2 = model.createResource(FOAF.getURI()+"/LizandraOttmann" )
+		Resource actor2 = model.createResource(FOAF.getURI()+"/LizandraOttmann" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Lizandra") )
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Ottmann") );
 		
-		Resource autor3 = model.createResource(FOAF.getURI()+"/AndressaVuicik" )
+		Resource actor3 = model.createResource(FOAF.getURI()+"/AndressaVuicik" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Andressa") )
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Vuicik") );
 		
-		Resource autor4 = model.createResource(FOAF.getURI()+"/JoseFreitas" )
+		Resource actor4 = model.createResource(FOAF.getURI()+"/JoseFreitas" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Jose") )
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Freitas") );
@@ -113,28 +113,28 @@ public class ResourceController {
 		
 		// Criação de um RECURSO com a ontolgia Foaf para Artigo (Document)
 		// Adição das PROPRIEDADES ao RECURSO
-		Resource artigo1 = model.createResource(FOAF.getURI()+"/LinguagemDeSoftware" )
+		Resource article1 = model.createResource(FOAF.getURI()+"/LinguagemDeSoftware" )
 				.addProperty(RDF.type, FOAF.Document ) 
 				.addProperty(FOAF.title, model.createTypedLiteral("Linguagem de Software para Compiladores") )
-				.addProperty(FOAF.made, autor1 )
+				.addProperty(FOAF.made, actor1 )
 				.addProperty(FOAF.primaryTopic, area3 );
 		
-		Resource artigo2 = model.createResource(FOAF.getURI()+"/RaspberryPy" )
+		Resource article2 = model.createResource(FOAF.getURI()+"/RaspberryPy" )
 				.addProperty(RDF.type, FOAF.Document ) 
 				.addProperty(FOAF.title, model.createTypedLiteral("Os principais componentes do RaspberryPy") )
-				.addProperty(FOAF.made, autor2 )
+				.addProperty(FOAF.made, actor2 )
 				.addProperty(FOAF.primaryTopic, area7 );
 		
-		Resource artigo3 = model.createResource(FOAF.getURI()+"/PerformanceSistemasPy" )
+		Resource article3 = model.createResource(FOAF.getURI()+"/PerformanceSistemasPy" )
 				.addProperty(RDF.type, FOAF.Document ) 
 				.addProperty(FOAF.title, model.createTypedLiteral("Performance de Sistemas em Python") )
-				.addProperty(FOAF.made, autor3 )
+				.addProperty(FOAF.made, actor3 )
 				.addProperty(FOAF.primaryTopic, area3 );
 		
-		Resource artigo4 = model.createResource(FOAF.getURI()+"/RepresentacaoDeObjetos" )
+		Resource article4 = model.createResource(FOAF.getURI()+"/RepresentacaoDeObjetos" )
 				.addProperty(RDF.type, FOAF.Document ) 
 				.addProperty(FOAF.title, model.createTypedLiteral("Representação de Objetos em Python") )
-				.addProperty(FOAF.made, autor4 )
+				.addProperty(FOAF.made, actor4 )
 				.addProperty(FOAF.primaryTopic, area4 );
 
 	}
