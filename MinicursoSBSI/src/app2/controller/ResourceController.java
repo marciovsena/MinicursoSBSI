@@ -16,8 +16,8 @@ public class ResourceController {
 	public ResourceController(Model model) {
 		this.model = model;
 		
-		// Criação de um RECURSO com a ontolgia Acm para Área de Conhecimento
-		// Adição das PROPRIEDADES ao RECURSO
+		// Criacao de um RECURSO com a ontolgia Acm para Area de Conhecimento
+		// Adicao das PROPRIEDADES ao RECURSO
 		Resource area1 = model.createResource(ACM.getURI() + "B_1_4_0_Languages_And_Compilers")
 				.addProperty(RDF.type, ACM.B_1_4_0_Languages_And_Compilers );
 		
@@ -48,8 +48,8 @@ public class ResourceController {
 		Resource area10 = model.createResource(ACM.getURI()+"E_2_Data_Storage_Representations")
 				.addProperty(RDF.type, ACM.E_2_Data_Storage_Representations);
 		
-		// Criação de um RECURSO com a ontolgia Foaf para Autor (Person)
-		// Adição das PROPRIEDADES ao RECURSO
+		// Criacao de um RECURSO com a ontolgia Foaf para Autor (Person)
+		// Adicao das PROPRIEDADES ao RECURSO
 		Resource actor1 = model.createResource(FOAF.getURI()+"/WeslleyAraujo" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Weslley") )
@@ -71,8 +71,8 @@ public class ResourceController {
 				.addProperty(FOAF.lastName, model.createTypedLiteral("Freitas") );
 		
 		
-		// Criação de um RECURSO com a ontolgia Foaf para Revisor (Person)
-		// Adição das PROPRIEDADES ao RECURSO
+		// Criacao de um RECURSO com a ontolgia Foaf para Revisor (Person)
+		// Adicao das PROPRIEDADES ao RECURSO
 		Resource reviewers1 = model.createResource(FOAF.getURI()+"/RenatoBulcao" )
 				.addProperty(RDF.type, FOAF.Person )
 				.addProperty(FOAF.firstName, model.createTypedLiteral("Renato") )

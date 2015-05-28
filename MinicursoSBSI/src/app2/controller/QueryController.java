@@ -12,6 +12,11 @@ import com.hp.hpl.jena.rdf.model.Model;
 
 public class QueryController {
 	
+	/**
+	 * Retorna todas as pessoas e respectivos nomes
+	 * @param model modelo RDF
+	 *
+	 */
 	public static void getPerson(Model model) {
 		String query;
 		query = "PREFIX foaf: <http://www.semanticweb.org/ontologies/2013/10/foaf.owl#>"
@@ -27,7 +32,12 @@ public class QueryController {
 		System.out.println();
 	}
 	
-	public static void getAreas(Model model) {
+	/**
+	 * Retorna areas
+	 * @param model modelo RDF
+	 *
+	 */
+	public static void getArea(Model model) {
 		String query;
 		query = "PREFIX foaf: <http://www.semanticweb.org/ontologies/2013/10/foaf.owl#>"
 				+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
@@ -42,7 +52,12 @@ public class QueryController {
 		System.out.println();
 	}
 
-	public static void getSubAreas(Model model) {
+	/**
+	 * Retorna subareas
+	 * @param model modelo RDF
+	 *
+	 */
+	public static void getSubarea(Model model) {
 		String query;
 		query = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
 				+ "SELECT ?subarea "
@@ -57,7 +72,12 @@ public class QueryController {
 		System.out.println();
 	}
 
-	public static void sugerirPessoasArea(Model model) {
+	/**
+	 * Retorna pessoas sugeridas por area
+	 * @param model modelo RDF
+	 *
+	 */
+	public static void suggestPeopleArea(Model model) {
 		String query;
 		query = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
 				+ "PREFIX acm: <http://linkserver.icmc.usp.br/ckonto/acm#>"
@@ -71,12 +91,17 @@ public class QueryController {
 				+ ")"
 				+ "}";
 		//order by areas
-		System.out.println("Recomendação de pessoas por áreas: ");
+		System.out.println("Recomendacao de pessoas por areas: ");
 		queryModel(query, model);
 		System.out.println();
 	}
 
-	public static void sugerirPessoasSubarea(Model model) {
+	/**
+	 * Retorna pessoas sugeridas por subarea
+	 * @param model modelo RDF
+	 *
+	 */
+	public static void suggestPeopleSubarea(Model model) {
 		String query;
 		query = "PREFIX foaf: <http://www.semanticweb.org/ontologies/2013/10/foaf.owl#>"
 				+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
@@ -94,12 +119,17 @@ public class QueryController {
 				+ "?area != ?indicatedArea"
 				+ ")"
 				+ "}";
-		System.out.println("Recomendação de pessoas por subareas: ");
+		System.out.println("Recomendacao de pessoas por subareas: ");
 		queryModel(query, model);
 		System.out.println();
 	}
 
-	public static void sugerirPessoasAreaEspecifica(Model model) {
+	/**
+	 * Retorna pessoas sugeridas por area especifica
+	 * @param model modelo RDF
+	 *
+	 */
+	public static void suggestPeopleSpecificArea(Model model) {
 		String query;
 		query = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
 				+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
@@ -110,17 +140,23 @@ public class QueryController {
 				+ "acm:E_2_2_Object_Representation rdf:type ?relatedArea . "
 				+ "?person acm:hasKnowledgeOf ?relatedArea . "
 				+ "}";
-		System.out.println("Recomendação de pessoas por área específica: E_2_2_Object_Representation ");
+		System.out.println("Recomendacao de pessoas por area especifica: E_2_2_Object_Representation ");
 		queryModel(query, model);
 		System.out.println();
 	}
 	
+	/**
+	 * Executa query com modelo recebido e imprime o resultado
+	 * @param queryString string com a query em SPARQL
+	 * @param model modelo RDF
+	 *
+	 */
 	public static void queryModel(String queryString, Model m) {
 
-		// Criação de um objeto Query com a string de consulta na linguagem SPARQL
+		// Criacao de um objeto Query com a string de consulta na linguagem SPARQL
 		Query query = QueryFactory.create(queryString);
 
-		// Interface para a execução de uma única consulta sobre os GRAFOS retornados do BD
+		// Interface para a execucao de uma unica consulta sobre os GRAFOS retornados do BD
 		QueryExecution qe = QueryExecutionFactory.create(query, m);
 
 		// Executa a consulta definida na string SPARQL e armazena em um ResultSet
