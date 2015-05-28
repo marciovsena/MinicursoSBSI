@@ -21,52 +21,71 @@ import uk.ac.manchester.cs.owl.owlapi.OWLOntologyManagerImpl;
 public class ModelController {
 	
 	static Model model;
-	static String FOAF = "ontologies/foaf.owl";
-	static String ACM = "ontologies/acm.owl";
+	static String FOAF = "src/ontologies/foaf.owl";
+	static String ACM = "src/ontologies/acm.owl";
 
-	public static void inicializaModelo() {
+	/**
+	 * Carrega do modelo com as informacoes do ResourceController
+	 *
+	 */
+	public static void initModel() {
 		model = ModelFactory.createDefaultModel();
-		
-		// Inicializa os Recursos para o Modelo
 		ResourceController r = new ResourceController(model);
 		model = r.getModel();
 	}
 
-	public static void imprimirModeloTURTLE() {
-		// Escrita do MODELO RDF na sintaxe TURTLE
+	/**
+	 * Escreve o modelo RDF na sintaxe TURTLE
+	 *
+	 */
+	public static void printModel() {
 		System.out.println();
 		model.write(System.out, "TURTLE");
+		System.out.println("\n");
 	}
 
+	/**
+	 * Executa maquina de inferencia utilizando o RDFSReasoner
+	 * @param model modelo RDF
+	 *
+	 */
 	public static InfModel runRDFSReasoner(Model model) {
-		// Máquina Inferência utilizando o RDFSReasoner
-		
 		Model schema = FileManager.get().loadModel(FOAF);
 		Model schema2 = FileManager.get().loadModel(ACM);
 		schema.add(schema2);
-		
+
 		InfModel infModel = ModelFactory.createRDFSModel(schema, model);
 
 		return infModel;
 	}
-	
-	public static InfModel runOWLMicroReasoner(Model model) {		
-		// Máquina Inferência utilizando o OWLMicroReasoner
-		
+
+	/**
+	 * Executa maquina de inferencia utilizando o OWLMicroReasoner
+	 * @param model modelo RDF
+	 *
+	 */
+	public static InfModel runOWLMicroReasoner(Model model) {
+
 		Model schema = FileManager.get().loadModel(FOAF);
 		Model schema2 = FileManager.get().loadModel(ACM);
 		schema.add(schema2);
 
 		Reasoner reasoner = ReasonerRegistry.getOWLMicroReasoner();
 		reasoner = reasoner.bindSchema(schema);
-		
+
 		InfModel infModel = ModelFactory.createRDFSModel(schema, model);
 		infModel = ModelFactory.createInfModel(reasoner, model);
-		
+
 		return infModel;
 	}
-	
+
+	/**
+	 * Executa maquina de inferencia utilizando o Pellet (https://github.com/complexible/pellet)
+	 * @param model modelo RDF
+	 *
+	 */
 	public static InfModel runPelletReasoner(Model model) throws MalformedURLException{
+
 		Reasoner reasoner = PelletReasonerFactory.theInstance().create();
 
 		InfModel infModel = ModelFactory.createInfModel(reasoner, model);
@@ -74,9 +93,9 @@ public class ModelController {
 		infModel.read(ACM);
 
 		return infModel;
-    }
+	}
 	
-	public static void listarPessoas() {
+	public static void listPerson() {
 		//Sem inferência
 		System.out.println("");
   		System.out.println("\n\n======== Consultas sobre o modelo sem inferências ========\n");
@@ -97,7 +116,7 @@ public class ModelController {
 		
 	}
 	
-	public static void listarAreas() {
+	public static void listArea() {
 		//Sem inferência
 		System.out.println("");
   		System.out.println("\n\n======== Consultas sobre o modelo sem inferências ========\n");
@@ -117,7 +136,7 @@ public class ModelController {
 		}
 	}
 
-	public static void listarSubareas() {
+	public static void listSubarea() {
 		//Sem inferência
 		System.out.println("");
 		System.out.println("\n\n======== Consultas sobre o modelo sem inferências ========\n");
@@ -137,7 +156,7 @@ public class ModelController {
 		}
 	}
 
-	public static void sugerirPessoasParaTodasAreas() {
+	public static void suggestPersonAllArea() {
 		//Sem inferência
 		System.out.println("");
 		System.out.println("\n\n======== Consultas sobre o modelo sem inferências ========\n");
@@ -157,7 +176,7 @@ public class ModelController {
 		}
 	}
 
-	public static void sugerirPessoasParaTodasSubareas() {
+	public static void suggestPersonAllSubareas() {
 		//Sem inferência
 		System.out.println("");
 		System.out.println("\n\n======== Consultas sobre o modelo sem inferências ========\n");
@@ -177,7 +196,7 @@ public class ModelController {
 		}
 	}
 
-	public static void sugerirPessoasParaAreaEspecifica() {
+	public static void suggestPersonAreaSpecif() {
 		//Sem inferência
 		System.out.println("");
 		System.out.println("\n\n======== Consultas sobre o modelo sem inferências ========\n");
@@ -196,16 +215,22 @@ public class ModelController {
 			e.printStackTrace();
 		}
 	}
-	
-	public static void persistirDadosRepositorioTDB() {
-		// Persistência do MODELO RDF em memória para o BD
+
+	/**
+	 * Persiste atualizando o modelo utilizando TDB
+	 *
+	 */
+	public static void TDBPersistsRepositoryData() {
 		PersistenceTDB tdb = new PersistenceTDB();
 		tdb.updateModel(model);
 		System.out.println();
 	}
-	
-	public static void deletarDadosRepositorioTDB() {
-		// Persistência do MODELO RDF em memória para o BD
+
+	/**
+	 * Remove o modelo utilizando TDB
+	 *
+	 */
+	public static void TDBRemoveRepositoryData() {
 		PersistenceTDB tdb = new PersistenceTDB();
 		tdb.removeModel(model);
 		System.out.println();
